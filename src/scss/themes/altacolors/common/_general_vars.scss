@@ -1,0 +1,77 @@
+
+
+// import functions used in this file
+@import "../../../scss/oj/utilities/oj.utilities.json";
+@import "../../../scss/oj/utilities/oj.utilities.theming.vars";
+
+@function map-general-vars($varMap) {
+  $generalVars: ();
+  $generalVars: join($generalVars, map-get($varMap, generalVars));
+
+  $componentVars: ();
+  $componentVars: join($componentVars, map-get($varMap, componentVars));
+
+  $map: ();
+  $uniqueValues: ();
+  
+  @each $generalVar in $generalVars {
+    $map: map-merge($map, ((map-get($generalVar, name)): ()));
+    $uniqueValues: append($uniqueValues, (map-get($generalVar, value)));
+  }
+
+  @for $i from 1 through length($componentVars) {
+    $componentVarValue: map-get(nth($componentVars, $i), value);
+    $componentVarName: map-get(nth($componentVars, $i), name);
+    
+    $mapped: false;
+    @for $j from 1 through length($uniqueValues) {
+      $generalVarValue: nth($uniqueValues, $j);
+      $generalVarName: nth(map-keys($map), $j);
+
+      @if not($mapped) {
+        @if $componentVarValue == $generalVarValue {
+          $mapped: true;
+          $list: map-get($map, $generalVarName);
+          $list: append($list, nth($componentVars, $i));
+          $map: map-merge($map, ($generalVarName: $list));
+        }
+      }
+    }
+    @if not($mapped) {
+      $array: ();
+      $array: append($array, nth($componentVars, $i));
+      $map: map-merge($map, ($componentVarValue: $array));
+      $uniqueValues: append($uniqueValues, $componentVarValue);
+    }
+  }
+  
+  $output: ();
+  @each $key in map-keys($map) {
+    $isGeneral: false;
+    $vars: map-get($map, $key);  
+    @each $var in $generalVars {
+      @if $key == map-get($var, name) {
+        $output: append($output, ('name': $key, 'value': map-get($var, value), 'vars': $vars));
+        $isGeneral: true;
+      }
+    }
+    @if not($isGeneral) {
+      $output: append($output, ('name': null, 'value': $key, 'vars': $vars));
+    }
+  }
+
+  @return $output;
+}
+
+$generalVarsMapping: ();
+$generalVarsMapping: append($generalVarsMapping, ('name': 'Text Colors', 'map': map-general-vars(oj-theming-text-colors())));
+$generalVarsMapping: append($generalVarsMapping, ('name': 'Border Radius', 'map': map-general-vars(oj-theming-border-radius())));
+$generalVarsMapping: append($generalVarsMapping, ('name': 'Box Shadow', 'map': map-general-vars(oj-theming-box-shadow())));
+$generalVarsMapping: append($generalVarsMapping, ('name': 'Header Vars', 'map': map-general-vars(oj-theming-header-vars())));
+$generalVarsMapping: append($generalVarsMapping, ('name': 'Window Vars', 'map': map-general-vars(oj-theming-window-vars())));
+
+
+
+.demo-general-vars-map {
+  font-family: oj-json($generalVarsMapping);
+}

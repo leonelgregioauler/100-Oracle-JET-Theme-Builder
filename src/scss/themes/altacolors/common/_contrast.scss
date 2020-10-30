@@ -1,0 +1,282 @@
+
+
+// these are backgrounds that random content can be put onto like links, form labels, etc.
+$paletteGeneralBg: ();
+$paletteGeneralBg: append($paletteGeneralBg, (name: "$bodyBgColor", value: $bodyBgColor));
+$paletteGeneralBg: append($paletteGeneralBg, (name: "$panelBgColor", value: $panelBgColor));
+$paletteGeneralBg: append($paletteGeneralBg, (name: "$panel1BgColor", value: $panel1BgColor));
+$paletteGeneralBg: append($paletteGeneralBg, (name: "$dialogBgColor", value: $dialogBgColor));
+$paletteGeneralBg: append($paletteGeneralBg, (name: "$popupBgColor", value: $popupBgColor));
+$paletteGeneralBg: append($paletteGeneralBg, (name: "$collectionCellBandedBgColor", value: $collectionCellBandedBgColor));
+$paletteGeneralBg: append($paletteGeneralBg, (name: "$collectionCellBgColor", value: $collectionCellBgColor));
+$paletteGeneralBg: append($paletteGeneralBg, (name: "$collectionCellBgColorFocus", value: $collectionCellBgColorFocus));
+$paletteGeneralBg: append($paletteGeneralBg, (name: "$collectionCellBgColorSelected", value: $collectionCellBgColorSelected));
+
+// these are general text colors
+$paletteGeneralText: ();
+$paletteGeneralText: append($paletteGeneralText, (name: "$textColor", value: $textColor));
+$paletteGeneralText: append($paletteGeneralText, (name: "$primaryTextColor", value: $primaryTextColor));
+$paletteGeneralText: append($paletteGeneralText, (name: "$secondaryTextColor", value: $secondaryTextColor));
+
+// tbd - in web theme tertiaryTextColor will fail on most background colors.
+//       should we show tertiaryTextColor here? Change tertiaryTextColor to a different value?
+//$paletteGeneralText: append($paletteGeneralText, (name: "$tertiaryTextColor", value: $tertiaryTextColor));
+$paletteGeneralText: append($paletteGeneralText, (name: "$headerTextColor", value: $headerTextColor));
+$paletteGeneralText: append($paletteGeneralText, (name: "$linkTextColor", value: $linkTextColor));
+$paletteGeneralText: append($paletteGeneralText, (name: "$textColorError", value: $textColorError));
+$paletteGeneralText: append($paletteGeneralText, (name: "$buttonHalfChromeTextColor", value: $buttonHalfChromeTextColor));
+$paletteGeneralText: append($paletteGeneralText, (name: "$buttonOutlinedChromeTextColor", value: $buttonOutlinedChromeTextColor));
+$paletteGeneralText: append($paletteGeneralText, (name: "$formControlLabelColor", value: $formControlLabelColor));
+
+// tbd: currently icons don't have to pass contrast, but they will in wcag 2.1.
+// Add icon colors that sit on bgcolors as well?
+$contrastCompList: ();
+$contrastCompList: append($contrastCompList, (name: "$buttonBgColor", value: $buttonBgColor,
+      textcolors: ((name: "$buttonTextColor", value: $buttonTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$buttonBgColorSelected", value: $buttonBgColorSelected,
+      textcolors: ((name: "$buttonTextColorSelected", value: $buttonTextColorSelected),)));
+$contrastCompList: append($contrastCompList, (name: "$buttonHalfChromeBgColorSelected", value: $buttonHalfChromeBgColorSelected,
+       textcolors: ((name: "$buttonHalfChromeTextColorSelected", value: $buttonHalfChromeTextColorSelected),)));
+$contrastCompList: append($contrastCompList, (name: "$datepickerBgColorSelected", value: $datepickerBgColorSelected,
+textcolors: ((name: "$datepickerTextColorSelected", value: $datepickerTextColorSelected),)));
+$contrastCompList: append($contrastCompList, (name: "$popupBgColor", value: $popupBgColor,
+      textcolors: ((name: "$datepickerHeaderTextColor", value: $datepickerHeaderTextColor),
+      (name: "$datepickerButtonTextColor", value: $datepickerButtonTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$panelBgColor", value: $panelBgColor,
+      textcolors: ((name: "$datepickerHeaderTextColor", value: $datepickerHeaderTextColor),
+      (name: "$datepickerButtonTextColor", value: $datepickerButtonTextColor),)));
+      $contrastCompList: append($contrastCompList, (name: "$dateTimePickerSwitcherBgColor", value: $dateTimePickerSwitcherBgColor,
+      textcolors: ((name: "$datepickerButtonTextColor", value: $datepickerButtonTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$timepickerItemBgColorFocus", value: $timepickerItemBgColorFocus,
+      textcolors: ((name: "$primaryTextColor", value: $primaryTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$bodyBgColor", value: $bodyBgColor,
+       textcolors: ((name: "$bodyTextColor", value: $bodyTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$headerBgColor", value: $headerBgColor,
+       textcolors: ((name: "$headerTextColor", value: $headerTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$menuBgColor", value: $menuBgColor,
+       textcolors: ((name: "$menuItemTextColor", value: $menuItemTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$menuItemBgColorFocus", value: $menuItemBgColorFocus,
+       textcolors: ((name: "$menuItemTextColor", value: $menuItemTextColor),)));
+
+$contrastCompList: append($contrastCompList, (name: "$menuSheetItemBgColor", value: $menuSheetItemBgColor,
+       textcolors: ((name: "$menuSheetItemTextColor", value: $menuSheetItemTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$menuSheetItemBgColorFocus", value: $menuSheetItemBgColorFocus,
+       textcolors: ((name: "$menuSheetItemTextColor", value: $menuSheetItemTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$navigationListItemBgColorSelected", value: $navigationListItemBgColorSelected,
+       textcolors: ((name: "$navigationListItemLabelColorSelected", value: $navigationListItemLabelColorSelected),)));
+$contrastCompList: append($contrastCompList, (name: "$tabBarItemBgColorSelected", value: $tabBarItemBgColorSelected,
+       textcolors: ((name: "$tabBarItemLabelColorSelected", value: $tabBarItemLabelColorSelected),)));
+$contrastCompList: append($contrastCompList, (name: "$navigationListItemContrastBgColorSelected", value: $navigationListItemContrastBgColorSelected,
+       textcolors: ((name: "$navigationListItemContrastLabelColorSelected", value: $navigationListItemContrastLabelColorSelected),)));
+$contrastCompList: append($contrastCompList, (name: "$navigationListHorizontalItemBgColorSelected", value: $navigationListHorizontalItemBgColorSelected,
+       textcolors: ((name: "$navigationListHorizontalItemLabelColorSelected", value: $navigationListHorizontalItemLabelColorSelected),)));
+$contrastCompList: append($contrastCompList, (name: "$tabBarHorizontalItemBgColorSelected", value: $tabBarHorizontalItemBgColorSelected,
+       textcolors: ((name: "$tabBarHorizontalItemLabelColorSelected", value: $tabBarHorizontalItemLabelColorSelected),)));
+$contrastCompList: append($contrastCompList, (name: "$collectionHeaderBgColor", value: $collectionHeaderBgColor,
+       textcolors: ((name: "$collectionHeaderTextColor", value: $collectionHeaderTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$collectionHeaderBgColorFocus", value: $collectionHeaderBgColorFocus,
+       textcolors: ((name: "$collectionHeaderTextColor", value: $collectionHeaderTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$collectionHeaderBgColorSelected", value: $collectionHeaderBgColorSelected,
+       textcolors: ((name: "$collectionHeaderTextColor", value: $collectionHeaderTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$collectionHeaderBgColorSelectedInactive", value: $collectionHeaderBgColorSelectedInactive,
+       textcolors: ((name: "$collectionHeaderTextColor", value: $collectionHeaderTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$collectionCellBgColor", value: $collectionCellBgColor,
+      textcolors: ((name: "$collectionCellTextColor", value: $collectionCellTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$collectionCellBandedBgColor", value: $collectionCellBandedBgColor,
+     textcolors: ((name: "$collectionCellTextColor", value: $collectionCellTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$collectionCellBgColorFocus", value: $collectionCellBgColorFocus,
+    textcolors: ((name: "$collectionCellTextColor", value: $collectionCellTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$collectionCellBgColorSelected", value: $collectionCellBgColorSelected,
+   textcolors: ((name: "$collectionCellTextColor", value: $collectionCellTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$collectionCellBgColorSelectedInactive", value: $collectionCellBgColorSelectedInactive,
+  textcolors: ((name: "$collectionCellTextColor", value: $collectionCellTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$treeViewItemBgColorSelected", value: $treeViewItemBgColorSelected,
+  textcolors: ((name: "$treeViewTextColor", value: $treeViewTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$treeViewItemBgColorSelectedInactive", value: $treeViewItemBgColorSelectedInactive,
+  textcolors: ((name: "$treeViewTextColor", value: $treeViewTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$swipeActionsDefaultBgColor", value: $swipeActionsDefaultBgColor,
+      textcolors: ((name: "$swipeActionsTextColor", value: $swipeActionsTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$swipeActionsNeutralBgColor", value: $swipeActionsNeutralBgColor,
+      textcolors: ((name: "$swipeActionsTextColor", value: $swipeActionsTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$swipeActionsAttentionBgColor", value: $swipeActionsAttentionBgColor,
+      textcolors: ((name: "$swipeActionsTextColor", value: $swipeActionsTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$swipeActionsDangerBgColor", value: $swipeActionsDangerBgColor,
+      textcolors: ((name: "$swipeActionsTextColor", value: $swipeActionsTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$dvtTimelineItemBgColor", value: $dvtTimelineItemBgColor,
+      textcolors: ((name: "$dvtTimelineItemTitleColor", value: $dvtTimelineItemTitleColor),)));
+$contrastCompList: append($contrastCompList, (name: "$dvtTimelineMinorAxisBgColor", value: $dvtTimelineMinorAxisBgColor,
+      textcolors: ((name: "$dvtTimelineMinorAxisLabelColor", value: $dvtTimelineMinorAxisLabelColor),)));
+$contrastCompList: append($contrastCompList, (name: "$dvtTimelineOverviewBgColor", value: $dvtTimelineOverviewBgColor,
+      textcolors: ((name: "$dvtTimelineOverviewLabelColor", value: $dvtTimelineOverviewLabelColor),)));
+$contrastCompList: append($contrastCompList, (name: "$dvtTimelineSeriesBgColor", value: $dvtTimelineSeriesBgColor,
+      textcolors: ((name: "$dvtTimelineSeriesLabelColor", value: $dvtTimelineSeriesLabelColor),)));
+$contrastCompList: append($contrastCompList, (name: "$dvtGanttBgColor", value: $dvtGanttBgColor,
+      textcolors: ((name: "$dvtGanttEmptyTextColor", value: $dvtGanttEmptyTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$dvtGanttRowBgColor", value: $dvtGanttRowBgColor,
+      textcolors: ((name: "$primaryTextColor", value: $primaryTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$dvtGanttMajorAxisBgColor", value: $dvtGanttMajorAxisBgColor,
+      textcolors: ((name: "$dvtGanttMajorAxisLabelColor", value: $dvtGanttMajorAxisLabelColor),)));
+$contrastCompList: append($contrastCompList, (name: "$dvtGanttMinorAxisBgColor", value: $dvtGanttMinorAxisBgColor,
+      textcolors: ((name: "$dvtGanttMinorAxisLabelColor", value: $dvtGanttMinorAxisLabelColor),)));
+
+$contrastCompList: append($contrastCompList, (name: "$messageComponentInlineBgColorError", value: $messageComponentInlineBgColorError,
+      textcolors: ((name: "$messageSummaryTextColor", value: $messageSummaryTextColor),(name: "$messageDetailTextColor", value: $messageDetailTextColor))));
+$contrastCompList: append($contrastCompList, (name: "$messageComponentInlineBgColorWarning", value: $messageComponentInlineBgColorWarning,
+      textcolors: ((name: "$messageSummaryTextColor", value: $messageSummaryTextColor),(name: "$messageDetailTextColor", value: $messageDetailTextColor))));
+$contrastCompList: append($contrastCompList, (name: "$messageComponentInlineBgColorInfo", value: $messageComponentInlineBgColorInfo,
+      textcolors: ((name: "$messageSummaryTextColor", value: $messageSummaryTextColor),(name: "$messageDetailTextColor", value: $messageDetailTextColor))));
+$contrastCompList: append($contrastCompList, (name: "$messageComponentInlineBgColorConfirmation", value: $messageComponentInlineBgColorConfirmation,
+      textcolors: ((name: "$messageSummaryTextColor", value: $messageSummaryTextColor),(name: "$messageDetailTextColor", value: $messageDetailTextColor))));
+$contrastCompList: append($contrastCompList, (name: "$messageGeneralOverlayHeaderBgColor", value: $messageGeneralOverlayHeaderBgColor,
+      textcolors: ((name: "$messageCategoryTextColor", value: $messageCategoryTextColor),(name: "$messageTimeTextColor", value: $messageTimeTextColor))));
+$contrastCompList: append($contrastCompList, (name: "$messageNotificationOverlayHeaderBgColor", value: $messageNotificationOverlayHeaderBgColor,
+      textcolors: ((name: "$messageCategoryTextColor", value: $messageCategoryTextColor),(name: "$messageTimeTextColor", value: $messageTimeTextColor))));
+$contrastCompList: append($contrastCompList, (name: "$messageGeneralOverlayBodyBgColor", value: $messageGeneralOverlayBodyBgColor,
+      textcolors: ((name: "$messageSummaryTextColor", value: $messageSummaryTextColor),(name: "$messageDetailTextColor", value: $messageDetailTextColor))));
+$contrastCompList: append($contrastCompList, (name: "$messageNotificationOverlayBodyBgColor", value: $messageNotificationOverlayBodyBgColor,
+      textcolors: ((name: "$messageSummaryTextColor", value: $messageSummaryTextColor),(name: "$messageDetailTextColor", value: $messageDetailTextColor))));
+
+$contrastCompList: append($contrastCompList, (name: "$tabBarItemContrastBgColorSelected", value: $tabBarItemContrastBgColorSelected,
+      textcolors: ((name: "$bodyTextColor", value: $bodyTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$tabBarHorizontalItemContrastBgColorSelected", value: $tabBarHorizontalItemContrastBgColorSelected,
+      textcolors: ((name: "$bodyTextColor", value: $bodyTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$filePickerBgColor", value: $filePickerBgColor,
+      textcolors: ((name: "$filePickerTextColor", value: $filePickerTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$avatarInnerBgColor", value: $avatarInnerBgColor,
+      textcolors: ((name: "$avatarTextColor", value: $avatarTextColor),)));
+
+// background colors in this list generally fall into one of these categories
+//  - are already in the general list (like $panelBgColor)
+//  - don't have text on them ($trainContinuousConnectorBgColorSelected)
+$contrastCompListIgnore: (
+  "$menuSheetBgColor",
+  "$refresherBgColor",
+  "$listboxBgColorFocus",
+  "$collectionStatusBgColor",
+  "$collectionEditableCellBgColorReadOnly",
+  "$collectionBgColor", "$panelBgColor", "$panel1BgColor", "$panel2BgColor", "$panel3BgColor",
+  "$panel4BgColor", "$panel5BgColor", "$windowBgColor", "$dialogBgColor",
+  "$popupBgColor",
+  "$toolbarBgColor",
+  "$trainConnectorBgColor", "$trainContinuousConnectorBgColorSelected", "$trainIndividualConnectorBgColorSelected",
+  "$trainConfirmationBgColor", "$trainInfoBgColor", "$trainErrorBgColor", "$trainWarningBgColor",
+  "$progressBarBgColor",
+  "$progressValueBgColor", "$progressCircleBgColor",
+  "$sliderThumbBgColor", "$sliderBarBgColor", "$sliderBarValueBgColor", "$switchTrackBgColor",
+  "$switchThumbBgColor", "$switchTrackBgColorSelected", "$switchThumbBgColorSelected",
+  "$switchTrackBgColorReadonly", "$switchThumbBgColorReadonly", "$switchTrackBgColorSelectedReadonly",
+  "$switchThumbBgColorSelectedReadonly", "$overlayBgColor",
+  "$collectionHeaderBgColorDrag",
+  "$collectionCellBgColorDrag", "$dvtComponentBgColor", "$dvtTooltipBgColor", "$dvtNoDataMessageColor",
+  "$dvtNBoxCellBgColor", "$dvtNBoxCellBgColorMinimized", "$dvtPictoChartItemBgColor",
+  "$dvtMapBgColor", "$dvtMapMarkerBgColor", "$dvtTreemapNodeHeaderBgColor",
+  "$dvtChartStockRangeBgColor", "$dvtChartStockRisingBgColor", "$dvtTimelineOverviewWindowBgColor",
+  "$dvtDiagramOverviewBgColor", "$dvtDiagramOverviewWindowBgColor", "$dvtDiagramOverviewNodeBgColor",
+  "$iconInnerBgColor",
+  "$dvtGanttTaskBgColor", "$dvtGanttMilestoneBgColor", "$dvtGanttSummaryBgColor");
+
+// tbd, should we show these values even when trainButtonStyleType is none?
+$contrastCompList: append($contrastCompList, (name: "$trainBgColor", value: $trainBgColor,
+      textcolors: ((name: "$trainButtonTextColor", value: $trainButtonTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$trainBgColorVisited", value: $trainBgColorVisited,
+      textcolors: ((name: "$trainButtonTextColor", value: $trainButtonTextColor),)));
+$contrastCompList: append($contrastCompList, (name: "$trainBgColorSelected", value: $trainBgColorSelected,
+      textcolors: ((name: "$trainButtonTextColorSelected", value: $trainButtonTextColorSelected),)));
+
+
+
+@if ($formControlBgColor == null or $formControlBgColor == transparent)
+{
+  $paletteGeneralText: append($paletteGeneralText, (name: "$formControlPlaceholderColor", value: $formControlPlaceholderColor));
+  $paletteGeneralText: append($paletteGeneralText, (name: "$formControlInputValueColor", value: $formControlInputValueColor));
+  $paletteGeneralText: append($paletteGeneralText, (name: "$formControlTriggerValueColor", value: $formControlTriggerValueColor));
+  $contrastCompListIgnore: append($contrastCompListIgnore, "$formControlBgColor");
+}
+@else
+{
+  $contrastCompList: append($contrastCompList, (name: "$formControlBgColor", value: $formControlBgColor,
+         textcolors: ((name: "$formControlPlaceholderColor", value: $formControlPlaceholderColor),
+                      (name: "$formControlInputValueColor", value: $formControlInputValueColor),
+                      (name: "$formControlTriggerValueColor", value: $formControlTriggerValueColor),
+                      )));
+}
+
+
+@if ($radioCheckboxSetBgColor == null or $radioCheckboxSetBgColor == transparent)
+{
+  $paletteGeneralText: append($paletteGeneralText, (name: "$radioCheckboxLabelColor", value: $radioCheckboxLabelColor));
+  $contrastCompListIgnore: append($contrastCompListIgnore, "$radioCheckboxSetBgColor");
+}
+@else
+{
+  $contrastCompList: append($contrastCompList, (name: "$radioCheckboxSetBgColor", value: $radioCheckboxSetBgColor,
+  textcolors: ((name: "$radioCheckboxLabelColor", value: $radioCheckboxLabelColor),)));
+}
+
+
+@function demo-contrast-comp-colors()
+{
+  //currcolors
+  $varList: ();
+  $varList: join($varList, oj-theming-controls-colors());
+  $varList: join($varList, oj-theming-forms-colors());
+  $varList: join($varList, oj-theming-layoutnav-colors());
+  $varList: join($varList, oj-theming-collections-colors());
+  $varList: join($varList, oj-theming-visualizations-colors());
+
+  $bgColors: ();
+  $tbdColors: ();
+
+  @each $color in $varList {
+    $name: map-get($color, name);
+    $lowername: to-lower-case($name);
+
+    @if (str-index($name, Disabled) == null and str-index($name, Active) == null and
+         str-index($name, Hover) == null and str-index($name, Border) == null and
+         str-index($lowername, boxshadow) == null and str-index($name, Outline) == null and
+         str-index($name, dropTarget) == null and
+         str-index($name, Divider) == null and str-index($name, Separator) == null and
+         str-index($name, dvtCategory) == null and str-index($name, dvtThreshold) == null and
+         str-index($lowername, icon) == null ) // icons will only need to pass contrast in wcag 2.1
+    {
+      $value: map-get($color, value);
+
+      @if ( str-index($name, BgColor) != null )
+      {
+        $bgColors: append( $bgColors,  $name);
+      }
+    }
+  }
+
+  $knowncolors: ();
+  @each $map in $contrastCompList
+  {
+    $knowncolors: append($knowncolors, map-get($map, name));
+  }
+
+  $knowncolors: join($knowncolors, $contrastCompListIgnore);
+  //@debug $knowncolors;
+
+  @each $name in $bgColors
+  {
+    @if (index($knowncolors, $name) == null)
+    {
+      $tbdColors: append($tbdColors, $name);
+    }
+  }
+
+  @if (length($tbdColors) > 0)
+  {
+    @debug "A background color has been added that isn't in one of $contrastCompList or $contrastCompListIgnore";
+    @debug $tbdColors;
+  }
+
+  @return $contrastCompList;
+}
+
+.demo-theming-contrast-map {
+  font-family: oj-json(
+             ('paletteGeneralBg':     $paletteGeneralBg,
+              'paletteGeneralText':   $paletteGeneralText,
+              'contrastCompColors':   demo-contrast-comp-colors()));
+}

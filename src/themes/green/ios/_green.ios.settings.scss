@@ -1,0 +1,65 @@
+// green ios theme
+//
+// NOTE: The demo themes have not been designed to meet contrast ratio 
+//       requirements and therefore may not be accessible.
+
+// VARIABLES
+//-----------------------------------------------------------------------------
+$themeName:  green;
+
+$brandColor:       #07ac02 !default;
+
+// Image and font directories 
+$imageDir:         "../../../css/alta/9.1.0/ios/images/";
+$commonImageDir:   "../../../css/alta/9.1.0/common/images/";
+$fontDir:          "../../../css/alta/9.1.0/ios/fonts/";
+$spriteImages:     "../../../themes/green/ios/images/sprites/sprite.svg";
+
+// COMPONENT VARIABLES
+// -------------------
+
+// progress
+// --------
+// The built in alta-ios overlay is blue, replace it with a black and white 
+// version and use opacity so the green background color shows through.
+$progressBarIndeterminateOverlayOpacity:   .3;
+$progressBarIndeterminateOverlayImage:     "../../common/ios/images/animated-overlay.gif";
+
+$progressCircleIndeterminateOverlayImage:  "../../common/ios/images/spinner_full.gif";
+
+// IMPORTS
+//-----------------------------------------------------------------------------
+
+// Import alta ios aggregating file
+@import "../../../scss/oj/alta-ios/oj-alta";
+
+// Import theme sprite style selectors.
+@import "../../scss/green-ios/widgets/oj.green.ios.sprite";
+
+// STYLE SELECTORS - Override background images using sprites.
+//-----------------------------------------------------------------------------
+
+// radioset and checkboxset
+// ------------------------
+// The default radio and checkbox images are blue, replace them with images that are green.
+
+.oj-fwk-icon-checkbox-dis-selected, .oj-menucheckbox-icon.oj-selected.oj-disabled::after, .oj-checkboxset .oj-disabled.oj-selected .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-dis-selected-scale;
+}
+
+.oj-fwk-icon-checkbox-ena-selected, .oj-menucheckbox-icon.oj-selected::after, .oj-checkboxset .oj-selected .oj-radiocheckbox-icon {
+  // background-image: oj-image-url('sprites/sprite.svg');
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-ena-selected-scale;
+}
+
+.oj-fwk-icon-radio-ena-selected, .oj-radioset .oj-selected .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-radio-ena-selected-scale;
+}
+
+// Pull to refresh
+// The default pull to refresh images are blue, replace them with images that are a neutral color.
+//// $refresherImageDir: "../../common/ios/images/";
+

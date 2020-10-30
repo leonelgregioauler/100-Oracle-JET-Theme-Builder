@@ -1,0 +1,128 @@
+<!--
+ Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+
+                        <div :style.display="[[theme.demoTheme == 'none' ? '' : 'none']]">
+                            <p>The best way to understand how to write a custom theme is to look at the files from a running example. To look at the files used to create one of the custom themes available in this demo first pick a custom theme. For example, pick 'green' <span style="width:16px;height:16px;font-size:16px;" class="site-color-iconColorDefault oj-icon demo-platform-icon-leaf"></span> or 'stealth' <span style="width:16px;height:16px;font-size:16px;" class="site-color-iconColorDefault oj-icon demo-platform-icon-cloud"></span>. </p>
+
+
+                            <p>For details about theming please see the <a target='_blank'
+                                    href="http://www.oracle.com/pls/topic/lookup?ctx=jet910&id=JETDG268">theming developer guide chapter</a>.</p>
+
+                            <h4>Settings File</h4>
+                             <p>The "settings" file has a commented version of the platform theme variables. To see how to use it to customize values please follow the directions above to see a tutorial.</p>
+
+                            <p>File (read only view): <span><oj-bind-text value="[[baseSettingsFileUrl]]"></oj-bind-text></span>
+                           </p>
+                            <div class="oj-panel demo-code-files">
+                                    <code>
+                                        <pre id="markup-example-basevars" dir="ltr"></pre>
+                                    </code>
+                            </div>
+
+                        </div>
+
+                        <div :style.display="[[theme.demoTheme == 'none' ? 'none' : '']]">
+                            <div style="margin-bottom: 20px">
+                                <div class="oj-flex-bar">
+                                    <div class="oj-flex-bar-start">
+                                      <oj-button style="vertical-align: top"
+                                                 disabled="[[currentStepValue() == 'intro']]"
+                                                 :style.visibility="[[currentStepValue() != 'intro' ? 'visible' : 'hidden']]"
+                                                 on-oj-action="[[previousStep]]">
+                                        <span slot='startIcon' class='oj-fwk-icon-caret-start oj-fwk-icon'></span>
+                                        <span>Back</span>
+                                      </oj-button>
+                                    </div>
+
+                                    <div class="oj-flex-bar-middle oj-flex oj-sm-only-hide">
+                                      <oj-train class="oj-flex-item oj-train-stretch" id="themetrain"
+                                                selected-step="{{currentStepValue}}"
+                                                steps="[[stepArray]]"></oj-train>
+                                    </div>
+                                    <div class="oj-flex-bar-end">
+                                      <oj-button style="vertical-align: top"
+                                                 on-oj-action="[[nextStep]]"
+                                                 disabled="[[currentStepValue() == 'basevars']]"
+                                                 :style.visibility="[[currentStepValue() != 'basevars' ? 'visible' : 'hidden']]">
+                                        <span slot='endIcon' class='oj-fwk-icon-caret-end oj-fwk-icon'></span>
+                                        <span>Next </span>
+                                      </oj-button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div :style.display="[[currentStepValue() == 'intro' ? '' : 'none']]">
+
+
+                                <p>The next steps show you the scss files for the currently selected custom theme, but first here's some background information.</p>
+                                <oj-module config="[[docresourcesConfig()]]"></oj-module>
+
+                            </div>
+
+                            <div :style.display="[[currentStepValue() == 'aggregating' ? '' : 'none']]">
+
+                                <h4>Custom Aggregating </h4>
+                                <oj-module config="[[docaggregatingConfig()]]"></oj-module>
+                                <p>In the next steps we'll see the content of the settings file, however please note that you can use JET tooling to scaffold up all the relevant files, see the tooling section of the <a target='_blank'
+                                        href="http://www.oracle.com/pls/topic/lookup?ctx=jet910&id=JETDG268">theming developer guide chapter</a> for more information.</p>
+
+                                <h4>Custom Aggregating File</h4>
+
+                                <p><oj-bind-text value="[[staticFileWarning]]"></oj-bind-text></p>
+                                <p>File: src/<span><oj-bind-text value="[[demoAggregatorFileUrl]]"></oj-bind-text></span></p>
+                                <div class="oj-panel demo-code-files" >
+                                        <code>
+                                            <pre id="markup-example-aggregator" dir="ltr"></pre>
+                                        </code>
+                                </div>
+
+                            </div>
+                            <div :style.display="[[currentStepValue() == 'customvars' ? '' : 'none']]">
+
+                                <h4>Settings File</h4>
+                                <p>Here you can see the customized variables for the '<span><oj-bind-text value="[[theme.demoTheme]]"></oj-bind-text></span>' demo theme. Note that you do not need to define all the variables in your custom variables file,
+                                    just the ones you want to
+                                    customize or that you refer to in the settings file.</p>
+
+
+                                <h4>Example Settings File</h4>
+
+                                <p><oj-bind-text value="[[staticFileWarning]]"></oj-bind-text></p>
+                                <p>File: src/<span><oj-bind-text value="[[demoSettingsFileUrl]]"></oj-bind-text></span></p>
+                                <div class="oj-panel demo-code-files" >
+                                        <code>
+                                            <pre id="markup-example-customvars" dir="ltr"></pre>
+                                        </code>
+                                </div>
+
+                            </div>
+
+                            <div :style.display="[[currentStepValue() == 'basevars' ? '' : 'none']]">
+                                <h4>Platform Theme Variables</h4>
+                                <p>In the previous step you saw the actual settings file for the '<span><oj-bind-text value="[[theme.demoTheme]]"></oj-bind-text></span>' demo theme, but how do you figure out what variables are even available? To assist you with this we provide a "settings" file which contains a commented version of the variables which you can uncomment and change as needed. When using the tooling to generate a theme a commented settings file will be generated for you, it will look something like the file below. </p>
+
+                                <h4>File</h4>
+                                <p>File (read only view): <span><oj-bind-text value="[[baseSettingsFileUrl]]"></oj-bind-text></span></p>
+                                <div class="oj-panel demo-code-files" >
+                                        <code>
+                                            <pre id="markup-example-basevars2" dir="ltr"></pre>
+                                        </code>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <style>
+                          .demo-code-files {
+                            font-size:12px;
+                            background-color: white;
+                            color: #333333;
+                           }
+
+                         .demo-code-files pre {
+                           white-space: pre-wrap;
+                         }
+                        </style>

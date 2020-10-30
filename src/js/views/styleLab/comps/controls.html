@@ -1,0 +1,391 @@
+<!--
+ Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+
+                      <div class="oj-sm-odd-cols-12 oj-xl-odd-cols-8" >
+                        <div class="oj-flex">
+                            <div class="oj-flex-item oj-sm-padding-2x-horizontal">
+
+                                <!-- Train -->
+                                <!-- todo: not responsive, hide it on small screens -->
+                                <div class="oj-sm-only-hide">
+                                  <h2>Train</h2>
+                                  <span class="oj-choice-item">
+                                    <oj-checkboxset id="disableTrain" value="{{trainDisabled}}">
+                                      <oj-option id="disables" value="disables">disable train</oj-option>
+                                    </oj-checkboxset>
+                                  </span>
+
+                                  <oj-train id="train"
+                                            style="margin-left:auto;margin-right:auto;"
+                                            selected-step="stp2"
+                                            steps="{{trainSteps}}"></oj-train>
+                                </div>
+                                <!-- Progress -->
+                                <h2>Progress</h2>
+                                <div class="oj-flex  oj-sm-flex-items-1">
+                                  <div class="oj-flex-item oj-sm-padding-2x-horizontal">
+                                    <h5>Determinate</h5>
+                                    <oj-progress id="progressbar"
+                                                 style="width: 100%;height: 10px;"
+                                                 value="70"
+                                         ></oj-progress>
+                                    <br>
+                                    <oj-progress id="progresscircle"
+                                                 type="circle"
+                                                 value="70"></oj-progress>
+                                  </div>
+                                  <div class="oj-flex-item oj-sm-padding-2x-horizontal">
+                                    <h5>Indeterminate</h5>
+                                    <oj-progress id="progressbar1"
+                                                 value="-1"
+                                                 style="width: 100%;height: 10px;"></oj-progress>
+                                    <br>
+                                    <oj-progress id="progresscircle1"
+                                                 value="-1"
+                                                 type="circle"></oj-progress>
+                                  </div>
+                                </div>
+
+
+                                <!-- filePicker -->
+
+                                <div class="oj-flex-item" >
+                                  <h2>FilePicker</h2>
+                                  <oj-file-picker>
+                                  </oj-file-picker>
+                                </div>
+
+                                <!-- progressList -->
+
+                                <div class="oj-flex-item" >
+                                  <h2>ProgressList</h2>
+                                  <oj-progress-list id="progressList" data="[[dataSource]]">
+                                  </oj-progress-list>
+                                </div>
+
+                                <!-- ConveyorBelt -->
+
+
+                                <!-- todo: not responsive, hide it on small screens -->
+                                <div class="oj-sm-only-hide">
+                                  <h2>ConveyorBelt</h2>
+                                  <oj-conveyor-belt style="width:500px; max-width:100%">
+                                    <oj-button>Hydrogen</oj-button>
+                                    <oj-button>Helium</oj-button>
+                                    <oj-button>Lithium</oj-button>
+                                    <oj-button>Beryllium</oj-button>
+                                    <oj-button>Boron</oj-button>
+                                    <oj-button>Carbon</oj-button>
+                                    <oj-button>Nitrogen</oj-button>
+                                    <oj-button>Oxygen</oj-button>
+                                    <oj-button>Fluorine</oj-button>
+                                    <oj-button>Neon</oj-button>
+                                    <oj-button>Sodium</oj-button>
+                                    <oj-button>Magnesium</oj-button>
+                                  </oj-conveyor-belt>
+                                </div>
+
+                                <!-- FilmStrip -->
+                                <div class="oj-flex-item oj-sm-12 oj-md-6">
+                                  <style>
+                                    .demo-filmstrip-item {
+                                        box-sizing: border-box;
+                                        width: 100px;
+                                        height: 50px;
+                                        margin: 5px;
+                                        text-align: center;
+                                        font-weight: bold;
+                                    }
+                                  </style>
+                                  <h2>FilmStrip</h2>
+                                  <oj-film-strip id="filmStrip" style="width:1px; min-width:100%;" data-oj-context>
+                                    <div class="oj-panel oj-panel-alt1 demo-filmstrip-item">Hydrogen</div>
+                                    <div class="oj-panel oj-panel-alt1 demo-filmstrip-item">Helium</div>
+                                    <div class="oj-panel oj-panel-alt1 demo-filmstrip-item">Lithium</div>
+                                    <div class="oj-panel oj-panel-alt1 demo-filmstrip-item">Beryllium</div>
+                                    <div class="oj-panel oj-panel-alt1 demo-filmstrip-item">Boron</div>
+                                    <div class="oj-panel oj-panel-alt1 demo-filmstrip-item">Carbon</div>
+                                    <div class="oj-panel oj-panel-alt1 demo-filmstrip-item">Nitrogen</div>
+                                    <div class="oj-panel oj-panel-alt1 demo-filmstrip-item">Oxygen</div>
+                                    <div class="oj-panel oj-panel-alt1 demo-filmstrip-item">Fluorine</div>
+                                    <div class="oj-panel oj-panel-alt1 demo-filmstrip-item">Neon</div>
+                                    <div class="oj-panel oj-panel-alt1 demo-filmstrip-item">Sodium</div>
+                                    <div class="oj-panel oj-panel-alt1 demo-filmstrip-item">Magnesium</div>
+                                  </oj-film-strip>
+                                  <div style="text-align:center; width:1px; min-width:100%;">
+                                    <div style="display:inline-block;">
+                                      <oj-paging-control id="pagingControl"
+                                         data="[[filmStripPagingModel]]"
+                                         page-size="0"
+                                         page-options='{"type": "dots"}'>
+                                      </oj-paging-control>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              <h2>Horizontal rule</h2>
+                              <hr/>
+
+                              <h2>Headers</h2>
+                              <h1>h1 header</h1>
+                              <h2>h2 header</h2>
+                              <h3>h3 header</h3>
+                              <h4>h4 header</h4>
+                              <h5>h5 header</h5>
+
+                              <h2>Fonts</h2>
+                              <span>
+                                  <span>$textColor</span> |
+                                  <span class="oj-text-primary-color">$primaryTextColor</span> |
+                                  <span class="oj-text-secondary-color">$secondaryTextColor</span> |
+                                  <span class="oj-text-tertiary-color">$tertiaryTextColor</span> |
+                                  <span class="oj-text-disabled-color">$textColorDisabled</span>
+                              </span>
+
+                              <div class="oj-flex-item">
+                                <h2>Messaging Colors</h2>
+                                <h5>Swipe to reveal </h5>
+                                <div style="width:300px; height:70px"  class="oj-flex oj-sm-flex-items-1">
+                                    <div  class="oj-swipetoreveal-action oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-padding-2x-top">
+                                        <div title="default" role="img" class="oj-flex-item demo-chat-icon-24 demo-icon-font-24"></div>
+                                        <div class="oj-flex-item">Default</div>
+                                    </div>
+                                    <div  class="oj-swipeactions-neutral oj-swipetoreveal-action oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-padding-2x-top">
+                                        <div title="more" role="img" class="oj-flex-item demo-gear-icon-16 demo-icon-font-24"></div>
+                                        <div  class="oj-flex-item">More</div>
+                                    </div>
+                                    <div  class="oj-swipeactions-attention oj-swipetoreveal-action oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-padding-2x-top">
+                                        <div title="Flag" role="img" class="oj-flex-item demo-bookmark-icon-16 demo-icon-font-24"></div>
+                                        <div class="oj-flex-item">Flag</div>
+                                    </div>
+                                    <div  class="oj-swipeactions-danger oj-swipetoreveal-action oj-flex-item oj-flex oj-sm-flex-direction-column oj-sm-padding-2x-top">
+                                        <div title="delete" role="img" class="oj-flex-item demo-fire-icon-24 demo-icon-font-24"></div>
+                                        <div class="oj-flex-item">Delete</div>
+                                    </div>
+                                </div>
+                                <h5>Train</h5>
+                                <span class="oj-choice-item">
+                                  <oj-checkboxset id="disableMessageTrain" value="{{trainMessageDisabled}}">
+                                    <oj-option id="disablesMT" value="disables">disable train</oj-option>
+                                  </oj-checkboxset>
+                                </span>
+                                 <oj-train id="messagingTrainDisabled"
+                                           steps="{{trainMessageSteps}}"></oj-train>
+                                <h5>Confirm Button</h5>
+                                <div>
+                                 <oj-button id="buttonConfirm2" class="oj-button-confirm"
+                                         chroming="solid" disabled="[[disableButtons().length > 0]]">
+                                   <span slot='startIcon' class='demo-icon-font demo-home-icon-24'></span>
+                                   <span>Confirm</span>
+                                 </oj-button>
+                                 </div>
+
+                                <div class="oj-flex-item">
+                                  <h5>Form control messages</h5>
+                                  <div>
+                                     <oj-input-text  messages-custom='[{"summary":"error"}]' aria-label="input with error message"></oj-input-text>
+                                   </div>
+                                  <div>
+                                     <oj-input-text  messages-custom='[{"summary":"warning", "severity": "warning"}]' aria-label="input with warning message"></oj-input-text>
+                                   </div>
+                                  <div>
+                                     <oj-input-text  messages-custom='[{"summary":"info", "severity": "info"}]' aria-label="input with info message"></oj-input-text>
+                                   </div>
+                                  <div>
+                                     <oj-input-text  messages-custom='[{"summary":"confirmation", "severity": "confirmation"}]' aria-label="input with confirmation message"></oj-input-text>
+                                   </div>
+                               </div>
+
+                              </div>
+
+                          <div class="oj-flex">
+                               <div class="oj-flex-item">
+                                 <h5>Page Level Messages</h5>
+                                 <div>
+                                    <oj-button on-oj-action="[[function(){document.querySelector('#simpleMessage').position = null;}]]">
+                                      Inline display
+                                    </oj-button>
+                                    <oj-button on-oj-action="[[function(){document.querySelector('#simpleMessage').position = {};document.querySelector('#simpleMessage').display = 'general';}]]">
+                                      Overlay display
+                                    </oj-button>
+                                    <oj-button on-oj-action="[[function(){document.querySelector('#simpleMessage').position = {};document.querySelector('#simpleMessage').display = 'notification';}]]">
+                                      Notification display
+                                    </oj-button>
+                                   <oj-messages id="simpleMessage">
+                                     <oj-message message='{"severity": "error",
+                                                           "summary" : "Message summary text",
+                                                           "detail" : "Message detail text"}'></oj-message>
+                                     <oj-message message='{"severity": "warning",
+                                                           "summary" : "Message summary text",
+                                                           "detail" : "Message detail text"}'></oj-message>
+                                     <oj-message message='{"severity": "info",
+                                                           "summary" : "Message summary text",
+                                                           "detail" : "Message detail text"}'></oj-message>
+                                     <oj-message message='{"severity": "confirmation",
+                                                           "summary" : "Message summary text",
+                                                           "detail" : "Message detail text"}'></oj-message>
+                                   </oj-messages>
+                                 </div>
+                               </div>
+                              </div>
+                            </div>
+
+
+                            <div class="oj-flex-item oj-sm-padding-2x-horizontal" >
+                                <h2>Link</h2>
+                                <a href="#1">Link text</a><br>
+                                <!-- Icon Font -->
+                                <h2>Icon Font</h2>
+                                <span role="img" title="$iconColor"
+                                      class="oj-clickable-icon demo-icon-font demo-home-icon-24" ></span>
+                                <span role="img" title="$iconColorDefault"
+                                      class="oj-clickable-icon oj-default demo-icon-font demo-home-icon-24"></span>
+                                <span role="img" title="$iconColorHover"
+                                      class="oj-clickable-icon oj-hover demo-icon-font demo-home-icon-24"></span>
+                                <span role="img" title="$iconColorActive"
+                                      class="oj-clickable-icon oj-active demo-icon-font demo-home-icon-24"></span>
+                                <span role="img" title="$iconColorSelected"
+                                      class="oj-clickable-icon oj-selected demo-icon-font demo-home-icon-24"></span>
+                                <span role="img" title="$iconColorDisabled"
+                                      class="oj-clickable-icon oj-disabled demo-icon-font demo-home-icon-24"></span>
+
+
+                                <!-- Button -->
+
+
+                                <h2>Button</h2>
+
+                            <span class="oj-choice-item">
+                              <oj-checkboxset id="disableButtons" value="{{disableButtons}}">
+                                <oj-option id="disable" value="disable">disable buttons</oj-option>
+                              </oj-checkboxset>
+                            </span>
+                               <div>
+                                    <oj-buttonset-one id="radioset"
+                                                      chroming="solid"
+                                                      class="oj-buttonset-width-auto"
+                                                      disabled="[[disableButtons().length > 0]]">
+                                        <oj-option id="button1" name="bs1">Choice 1</oj-option>
+                                        <oj-option id="button2" name="bs1" checked="checked">Choice 2</oj-option>
+                                        <oj-option id="button3" name="bs1">Choice 3</oj-option>
+                                    </oj-buttonset-one>
+                                </div>
+                                <div>
+                                    <oj-button id="buttonFC" chroming="solid" disabled="[[disableButtons().length > 0]]">
+                                      <span slot='startIcon' class='demo-icon-font demo-home-icon-24'></span>
+                                      <span>Solid</span>
+                                    </oj-button>
+                                    <oj-button id="buttonHC" chroming="borderless" disabled="[[disableButtons().length > 0]]">
+                                      <span slot='startIcon' class='demo-icon-font demo-home-icon-24'></span>
+                                      <span>Borderless</span>
+                                    </oj-button>
+                                    <oj-button id="buttonO" chroming="outlined" disabled="[[disableButtons().length > 0]]">
+                                      <span slot='startIcon' class='demo-icon-font demo-home-icon-24'></span>
+                                      <span>Outlined</span>
+                                    </oj-button>
+                                    <oj-button id="buttonIO" display="icons"  chroming="solid" disabled="[[disableButtons().length > 0]]">
+                                      <span slot='startIcon' class='demo-icon-font demo-home-icon-24'></span>
+                                      Icon only
+                                    </oj-button>
+                                </div>
+                                <div>
+                                    <oj-button id="buttonPri" class="oj-button-primary" chroming="solid" disabled="[[disableButtons().length > 0]]">
+                                      <span slot='startIcon' class='demo-icon-font demo-home-icon-24'></span>
+                                      <span>Primary</span>
+                                    </oj-button>
+
+                                    <oj-button id="buttonConfirm" class="oj-button-confirm"
+                                            chroming="solid" disabled="[[disableButtons().length > 0]]">
+                                      <span slot='startIcon' class='demo-icon-font demo-home-icon-24'></span>
+                                      <span>Confirm</span>
+                                    </oj-button>
+                               </div>
+                                <div>
+                                    <oj-button id="buttonSmall" class="oj-button-sm"
+                                            chroming="solid" disabled="[[disableButtons().length > 0]]">
+                                      <span slot='startIcon' class='demo-icon-font demo-home-icon-24'></span>
+                                      <span>small</span>
+                                    </oj-button>
+                                    <oj-button id="buttonIO2" class="oj-button-sm" chroming="solid" disabled="[[disableButtons().length > 0]]" display='icons'>
+                                      <span slot='startIcon' class='demo-icon-font demo-home-icon-24'></span>
+                                      small icon only
+                                    </oj-button>
+                                </div>
+                                <div>
+                                    <oj-button id="buttonL" class="oj-button-lg"
+                                            chroming="solid" disabled="[[disableButtons().length > 0]]">
+                                      <span slot='startIcon' class='demo-icon-font demo-home-icon-24'></span>
+                                      <span>large</span>
+                                    </oj-button>
+                                    <oj-button id="buttonLIco" class="oj-button-lg"
+                                            chroming="solid" disabled="[[disableButtons().length > 0]]" display='icons'>
+                                      <span slot='startIcon' class='demo-icon-font demo-home-icon-24'></span>
+                                      large icon only
+                                    </oj-button>
+                               </div>
+                                <div>
+                                    <oj-button id="buttonXL" class="oj-button-xl"
+                                            chroming="solid" disabled="[[disableButtons().length > 0]]">
+                                      <span slot='startIcon' class='demo-icon-font demo-home-icon-24'></span>
+                                      <span>extra large</span>
+                                    </oj-button>
+                                    <oj-button id="buttonXLIco" class="oj-button-xl"
+                                            chroming="solid" disabled="[[disableButtons().length > 0]]" display='icons'>
+                                      <span slot='startIcon' class='demo-icon-font demo-home-icon-24'></span>
+                                      extra large icon only
+                                    </oj-button>
+                               </div>
+
+                                <h2>Menu</h2>
+                                <oj-menu-button id="menuButton">
+                                  <span>Actions</span>
+                                  <oj-menu id="menu" slot="menu">
+                                    <oj-option id="zoomin" value="Zoom In">
+                                      <span class="oj-fwk-icon oj-fwk-icon-arrow-n" slot="startIcon"></span>Zoom In
+                                    </oj-option>
+                                    <oj-option id="zoomout" value="Zoom Out">
+                                      <span class="demo-icon-font demo-bookmark-icon-16" slot="startIcon"></span>Zoom Out
+                                    </oj-option>
+                                    <oj-option id="divider"></oj-option>
+                                    <oj-option id="save" value="Save">
+                                      <span class="demo-icon-font demo-palette-icon-24" slot="startIcon"></span>Save
+                                    </oj-option>
+                                    <oj-option id="print" value="Print..." disabled="true">
+                                      <span class="demo-icon-font demo-chat-icon-24" slot="startIcon"></span>Print...
+                                    </oj-option>
+                                    <oj-option id="divider2"></oj-option>
+                                    <oj-menu-select-many value="{{menuSelectManyValue}}">
+                                      <oj-option value="zoomTextOnly">Zoom Text Only</oj-option>
+                                    </oj-menu-select-many>
+                                  </oj-menu>
+                                </oj-menu-button>
+  								<!-- avatar -->
+                                <div class="oj-flex-item" >
+                                  <h2>Avatar</h2>
+                                  <oj-avatar initials="AB">
+                                  </oj-avatar>
+                                  <oj-avatar initials="AB" src="images/avatar-image.jpg">
+                                  </oj-avatar>
+                                </div>
+
+								              <!-- Circular Icon -->
+								              <div class="oj-flex-item" >
+                                  <h2>Circular Icon</h2>
+                                  <span class="oj-icon-circle">
+                                    <span class="oj-icon-circle-inner">
+                                      <div class="demo-circle-icon-font oj-fwk-icon-calendar"></div>
+                                    </span>
+                                  </span>
+                                  <span class="oj-icon-circle oj-icon-circle-border">
+                                    <span class="oj-icon-circle-inner">
+                                      <div class="demo-circle-icon-font oj-fwk-icon-calendar"></div>
+                                    </span>
+                                  </span>
+                                </div>
+
+                              </div> <!--end col-->
+                        </div><!-- end row-->
+                      </div>

@@ -1,0 +1,71 @@
+<!--
+ Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<h3>Variable Mappings</h3>
+<table id="assignedtable" summary="Assigned Brand / Neutral Palette List" aria-label="Assigned Brand / Neutral Color Palette Table"
+       data-bind="ojComponent: {component: 'ojTable',
+                                data: assigneddatasource,
+                                display: 'grid',
+                                columnsDefault: {sortable: 'none'},
+                                columns: [{headerText: 'Color',
+                                            template: 'color_assigned'},
+                                          {headerText: 'Ramp Variable Name',
+                                           template: 'rampvar'},
+                                          {headerText: 'Hex Value',
+                                           template: 'hexval'},
+                                          {headerText: 'Assigned Variables',
+                                           template: 'variablenamediv'}
+                                         ],
+                                rootAttributes: {'style':'width: 100%; height:100%; white-space: normal;'}}">
+</table>
+<script type="text/html" id="rampvar">
+     <td style="width:200px;"><oj-bind-text value="[[name]]"></oj-bind-text>
+     </td>
+</script>
+<script type="text/html" id="hexval">
+     <td style="width:100px;"><oj-bind-text value="[[value]]"></oj-bind-text>
+     </td>
+</script>
+<script type="text/html" id="color_assigned">
+     <td style="width:200px;">
+       <div style="width:100%;height:30px;" :style.background-color="[[value]]"></div>
+     </td>
+</script>
+<script type="text/html" id="variablenamediv">
+     <td>
+       <span data-bind="html: matches"></span>
+     </td>
+</script>
+
+<h3>Variables not assigned to palette color</h3>
+<p><oj-bind-text value="{{statusText}}"></oj-bind-text></p>
+<!-- ko if: notassignedramp.length != 0 -->
+<table id="notassignedtable" summary="Variables not assigned to palette color" aria-label="Variables not assigned to palette color"
+       data-bind="ojComponent: {component: 'ojTable',
+                                data: notassigneddatasource,
+                                display: 'grid',
+                                columnsDefault: {sortable: 'none'},
+                                columns: [{headerText: 'Color',
+                                           template: 'color_notassigned'}
+                                          {headerText: 'Declared Variable Name',
+                                           template: 'notassignvar'},
+                                          {headerText: 'Color Value',
+                                           template: 'colorval'}],
+                                rootAttributes: {'style':'width:100%;white-space:normal;'}}">
+</table>
+<!-- /ko -->
+<script type="text/html" id="notassignvar">
+     <td style="width:200px;"><oj-bind-text value="[[name]]"></oj-bind-text>
+     </td>
+</script>
+<script type="text/html" id="colorval">
+     <td style="width:100px;"><oj-bind-text value="[[value]]"></oj-bind-text>
+     </td>
+</script>
+<script type="text/html" id="color_notassigned">
+     <td>
+       <div style="width:200px;height:30px;" :style.background-color="[[value]]"></div>
+     </td>
+</script>

@@ -1,0 +1,48 @@
+<!--
+ Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+
+  <h2>Contrast Testing</h2>
+  <div>
+    To comply with WCAG 2.0 you need an accessible luminosity contrast ratio between text and background colors
+    as specified in <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast">WCAG 2.0 - Section 1.4.3 "Contrast"</a>.
+    This page helps you check which text/background color combinations meet that ratio.
+    One way to do this is to</div>
+    <ol>
+      <li>Install aXe accessibility testing tools chrome extension: <a target="_blank" href="https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US">Accessibility Testing with aXe</a></li>
+      <li>Open this page in the Chrome browser, open the developer tools, and select the "aXe" tab</li>
+      <li>On 'aXe' tab press the 'Analyze' button </li>
+      <li>Contrast warnings and issues will be displayed in different categories</li>
+      <li>To the left of the warning text click the arrow to see the individual violations, clicking on each violation will highlight the dom with issues on the page.</li>
+    </ol>
+<h2>General Color Combinations</h2>
+<div><oj-bind-for-each data="[[colors]]"><template data-oj-as="bgcolor">
+  <div class="demo-contrast-box" style="width:220px">
+    <span><oj-bind-text value="[[bgcolor.data.name]]"></oj-bind-text></span>
+    <div style="border: 1px solid black; padding: 5px;"
+         :style.background-color="[[bgcolor.data.value]]">
+       <oj-bind-for-each data="[[textcolors]]"><template data-oj-as="textcolor"><div>
+          <div :style.color="[[textcolor.data.value]]" :title="[['bgcolor=' + bgcolor.data.value]]"><oj-bind-text value="[[textcolor.data.name]]"></oj-bind-text></div>
+       </div></template></oj-bind-for-each>
+    </div>
+  </div>
+</template></oj-bind-for-each></div>
+<h3>Component Specific Combinations</h3>
+<div class="oj-flex"><oj-bind-for-each data="[[compcolors]]"><template data-oj-as="compcolor">
+  <div class="demo-contrast-box oj-flex-item">
+    <span><oj-bind-text value="[[compcolor.data.name]]"></oj-bind-text></span>
+    <div style="border: 1px solid black; padding: 2px;"
+         :style.background-color="[[compcolor.data.value]]">
+       <oj-bind-for-each data="[[compcolor.data.textcolors]]"><template data-oj-as="textcolor"><div>
+          <div :style.color="[[textcolor.data.value]]" :title="[['bgcolor=' + compcolor.data.value]]"><oj-bind-text value="[[textcolor.data.name]]"></oj-bind-text></div>
+       </div></template></oj-bind-for-each>
+    </div>
+  </div>
+</template></oj-bind-for-each></div>
+  <h3 class="oj-sm-padding-2x-top">Disabled Content</h3>
+  Note that <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast">WCAG 2.0 - Section 1.4.3 "Contrast"</a>
+  says that text or images of text that are part
+  of an inactive user interface component have no contrast requirement.
+  Therefore we don't include disabled text colors like $textColorDisabled in the panels on this page.

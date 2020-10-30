@@ -1,0 +1,151 @@
+// sanfrancisco windows theme
+//
+// The "san francisco" theme uses the colors of a certain san francisco based sports team.
+//
+// In addition to changing colors various non-color customizations are made. For example here are a few changes:
+//  - font - reduce the root font size
+//  - buttons - customize default chroming
+//  - tabs - customize tabs to be rounded instead of square
+//  - navlist - for vertical navlist make the bgcolor strong
+//
+// NOTE: The demo themes have not been designed to meet contrast ratio requirements and therefore may not accessible.
+
+// VARIABLES
+// -----------------------------------------------------------------------------
+$themeName:  sanfrancisco;
+
+$brandColor:           #F2552C !default;
+$neutralHue:           33 !default;
+$neutralSaturation:    23% !default;
+
+// Image and font directories
+// _-------------------------
+$imageDir:         "../../../css/alta/9.1.0/windows/images/";
+$commonImageDir:   "../../../css/alta/9.1.0/common/images/";
+$fontDir:          "../../../css/alta/9.1.0/windows/fonts/";
+$spriteImages:     "../../../themes/sanfrancisco/windows/images/sprites/sprite.svg";
+
+// UNIVERSAL VARIABLES
+// ----------------------------------
+
+// Universal Font & Text Styling
+// -----------------------------
+
+// font size
+$rootFontSize:    .875em;
+
+// radius
+// Show a more rounded look and up the border radius variables.
+$largeBorderRadius:  9px;
+$mediumBorderRadius: 7px;
+$smallBorderRadius:  4px;
+
+// COMPONENT VARIABLES
+// -------------------
+
+// button
+// ------
+
+// Chroming option defaulting.
+$buttonChromingOptionDefault: outlined;
+$buttonsetChromingOptionDefault: outlined;
+
+// forms
+// -----
+$formLayoutLabelInlineAlign: end;
+$formLayoutFieldInlineAlign: start;
+
+$formControlBorderWidth:     1px;
+$formControlBorderRadius:    5px;
+
+// Controls the horizontal padding inside an input.
+$formControlPaddingHorizontal: 10px;
+
+// progress
+// --------
+$progressCircleIndeterminateOverlayImage:  "../../common/windows/images/spinner_full.gif";
+$progressBarIndeterminateOverlayImage:     "../../common/windows/images/animated-overlay.svg";
+
+// train
+// -----
+$trainLabelTextWrap:   nowrap;
+
+// navigationList
+// --------------
+// For vertical navlist make the bgcolor strong.
+
+$navigationListItemBorderWidth:            0;
+$navigationListIconOnlyItemBorderWidth:    0;
+
+$tabBarVerticalItemBorderWidth:            0;
+$tabBarVerticalIconOnlyItemBorderWidth:    0;
+
+$navigationListHorizontalItemBorderWidth:  0 0 3px 0;
+$tabBarHorizontalItemBgColorSelected:      transparent ;
+
+// IMPORTS
+//-----------------------------------------------------------------------------
+
+// Import alta web aggregating file
+@import "../../../scss/oj/alta-windows/oj-alta";
+
+// Import theme sprite style selectors.
+@import "../../scss/sanfrancisco-windows/widgets/oj.sanfrancisco.windows.sprite";
+
+// STYLE SELECTORS - Override background images using sprites.
+//-----------------------------------------------------------------------------
+
+// radioset and checkboxset
+// ------------------------
+// The default radio and checkbox images are blue, replace them with images that are orange.
+
+.oj-fwk-icon-checkbox-dis-selected, .oj-menucheckbox-icon.oj-selected.oj-disabled::after, .oj-checkboxset .oj-disabled.oj-selected .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-dis-selected-scale;
+}
+
+.oj-fwk-icon-checkbox-dis-unselected, .oj-menucheckbox-icon.oj-disabled::after, .oj-checkboxset .oj-disabled .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-dis-unselected-scale;
+}
+
+.oj-fwk-icon-checkbox-ena-selected, .oj-menucheckbox-icon.oj-selected::after, .oj-checkboxset .oj-selected .oj-radiocheckbox-icon {
+  // background-image: oj-image-url('sprites/sprite.svg');
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-ena-selected-scale;
+}
+
+.oj-fwk-icon-checkbox-ena-unselected, .oj-menucheckbox-icon::after, .oj-checkboxset .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-ena-unselected-scale;
+}
+
+.oj-fwk-icon-checkbox-pressed-selected, .oj-checkboxset-wrapper > .oj-active.oj-selected .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-pressed-selected-scale;
+}
+
+.oj-fwk-icon-checkbox-pressed-unselected, .oj-checkboxset-wrapper > .oj-active .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-pressed-unselected-scale;
+}
+
+.oj-fwk-icon-radio-ena-selected, .oj-radioset .oj-selected .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-radio-ena-selected-scale;
+}
+
+.oj-fwk-icon-radio-ena-unselected, .oj-radioset .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-radio-ena-unselected-scale;
+} 
+
+.oj-fwk-icon-radio-pressed-selected, .oj-radioset-wrapper > .oj-selected.oj-active .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-radio-pressed-selected-scale;
+} 
+
+.oj-fwk-icon-radio-pressed-unselected, .oj-radioset-wrapper > .oj-active .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-radio-pressed-unselected-scale;
+}

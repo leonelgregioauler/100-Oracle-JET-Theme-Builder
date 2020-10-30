@@ -1,0 +1,119 @@
+<!--
+ Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-flex-bar">
+  <div class="oj-flex-bar-middle">
+    <div>
+
+      <h2>Instructions</h2>
+
+      <h3 class="oj-header-border oj-sm-margin-4x-top">Goals</h3>
+      <p>
+        The Theme Builder project is set up with a custom theme for you to edit when running on your local machine. This documentation will walk you through how to edit these custom theme files in your favorite text editor to create your custom theme. </p>
+
+
+
+      <h3 class="oj-header-border oj-sm-margin-4x-top">Setup</h3>
+      <ol>
+        <li>
+          <span>Install the tooling
+            <ol>
+              <li>If you've never installed the tooling see the <a target='_blank'
+                                                                   href="http://www.oracle.com/pls/topic/lookup?ctx=jet400&id=JETDG-GUID-6AEB5A00-22D8-4BC1-AAB3-4134F906C1C0">getting started developer guide chapter</a>
+              </li>
+              <li>If you have used our tooling before you need to uninstall and reinstall the CLI each time you upgrade to a new version of JET, here are the commands:
+                <ul>
+                  <li><code>npm uninstall -g ojet-cli</code></li>
+                  <li><code>npm install -g @oracle/ojet-cli</code></li>
+                </ul>
+              </li>
+            </ol>
+          </span>
+        </li>
+        <li>Create a directory named <code>ThemeBuilder</code> (or whatever name you'd like)</li>
+        <li>In the <code>ThemeBuilder</code> directory unzip <a href="http://www.oracle.com/webfolder/technetwork/jet/public_samples/JET-Theme-Builder.zip">JET-Theme-Builder.zip</a></li>
+        <li>In your CLI cd into the <code>ThemeBuilder</code> directory</li>
+        <li>Once in the ThemeBuilder directory run the following setup commands:
+          <ol>
+            <li><code>ojet restore</code></li>
+            <li><code>ojet add sass</code></li>
+            <li><code>ojet create theme mytheme</code></li>
+          </ol>
+        </li>
+        <li>Any time you want to start up run the command below from the ThemeBuilder directory (and any time you want to stop it press ctrl-C in the CLI window):
+          <ul>
+            <li><code>ojet serve --themes=all:all</code></li>
+          </ul>
+        </li>
+      </ol>
+
+
+      <h3 class="oj-header-border oj-sm-margin-4x-top">Resources</h3>
+      <oj-module config="[[docresourcesConfig()]]"></oj-module>
+
+      <h3 class="oj-header-border oj-sm-margin-4x-top">Tutorial</h3>
+      To familiarize yourself with how to write a custom theme:
+      <ul>
+        <li>On the home page under 'Custom Theme' choose the green theme (click the button with the leaf icon <span style="width:16px;height:16px;font-size:16px; color:#07ac02" class="demo-icon-font demo-platform-icon-leaf"></span>). </li>
+        <li>Now click the 'Files' button. </li>
+        <li>Follow the tutorial to see the files for this theme. </li>
+      </ul>
+
+      <p>You can repeat the tutorial for other themes like stealth<span style="width:16px;height:16px;font-size:16px; color:grey" class="demo-icon-font demo-platform-icon-cloud"></span> and san francisco<span style="width:16px;height:16px;font-size:16px; color:#F2552C" class="demo-icon-font demo-platform-icon-sf"></span>. Each demo theme has a different focus, click the help icon next to 'Custom Theme' for more information. </p>
+
+
+
+
+      <h3 class="oj-header-border oj-sm-margin-4x-top">Edit 'My Theme'</h3>
+
+      The following assumes you are running Theme Builder on your local machine.
+      <ol>
+        <li>
+          Select 'My Theme':
+          <ul>
+            <li>go to the Home page and under 'Target Platform' make sure the first button for web is selected. Under 'Custom Theme' select the wrench icon <span style="width:16px;height:16px;font-size:16px;" class="demo-icon-font demo-platform-icon-wrench"></span>. Under 'View Selection' make sure 'Components' is selected.
+            </li>
+          </ul>
+        </li>
+        <li>Change a variable:
+          <ul>
+            <li>in your favorite text editor open <code>[ROOT]/src/themes/mytheme/web/_mytheme.web.settings.scss</code>. Uncomment <code>$brandColor</code> and change the value to <code>red</code>. Wait for the css file to be regenerated (the page will reload). You should now see that in many places the dominant color of blue has been replaced with red. </li>
+            <li>Some high impact variables that you can modify to see their effect include:
+              <ul>
+                <li>Palette variables: $brandColor, $neutralHue, and $neutralSaturation</li>
+                <li>Text variables: $fontFamily, $rootFontSize, $textColor, and $linkTextColor</li>
+              </ul>
+            </li>
+            <li>More information about variables is available in the <a target='_blank'
+                                                                        href="http://www.oracle.com/pls/topic/lookup?ctx=jet400&id=JETDG-GUID-A5C623B2-3E97-46C5-B366-9A63BB060396">'SCSS Variables' section of the developer guide</a>.</li>
+          </ul>
+        </li>
+      </ol>
+      <p>
+        The instructions above explain editing the files in the mytheme 'web' directory, but similar files are available in the sibling directories 'ios', 'android', 'windows'.
+      </p>
+
+      <h3 class="oj-header-border oj-sm-margin-4x-top">Performance</h3>
+
+      <p>For performance reasons you only want to download what you really need, see the <a target='_blank'
+                                                                                            href="http://www.oracle.com/pls/topic/lookup?ctx=jet400&id=JETDG369">Controlling CSS Content</a> in the theming developer guide for information about controlling which css is generated.</p>
+      <p>Theme Builder may become unusable if you choose not to include certain things, but just to see how it works open the custom theme settings file (<code>[ROOT]/src/themes/mytheme/web/_mytheme.web.settings.scss</code>) and uncomment
+        '<code>$includeFormControlClasses</code>' and set the value to false. Wait for the page to reload. Now click on the 'Forms' tab, the form controls should look unstyled because the css is no longer included.
+
+      </p>
+
+      <h3 class="oj-header-border oj-sm-margin-4x-top">JET Sass Files</h3>
+      <p>You may want to search through JET's scss files, for example to see where a variable is used. JET's scss files can be found in <code>[ROOT]/node_modules/@oracle/oraclejet/dist/scss</code>. However you should never edit the files in these directories as it makes upgrading to a new version of JET difficult. Instead you should only edit files in your <code>[ROOT]/src/themes/</code> directories.</p>
+
+
+      <h3 class="oj-header-border oj-sm-margin-4x-top">Source Maps</h3>
+      <p>We provide a css source map which you can use to figure out what scss generated the css. Source maps should be <a href="https://developers.google.com/web/tools/chrome-devtools/javascript/source-maps#enable_source_maps_in_settings">enabled by default in chrome dev tools</a>.
+        Below is an example of the Chrome dev tools style tab when source maps are enabled, note that the link is to an scss file rather than to a css file. </p>
+      <div><img src="images/devtoolsstyletab.png"></div>
+      <p style="margin-top: 20px">When you click the link to the scss file you will see something like this:</p>
+      <div><img src="images/devtoolsscssfile.png"></div>
+    </div>
+  </div>
+</div>

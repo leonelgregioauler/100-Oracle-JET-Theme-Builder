@@ -1,0 +1,88 @@
+<!--
+ Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+
+            <div class="oj-flex oj-md-only-wrap-nowrap oj-sm-only-flex-direction-column  oj-lg-flex-direction-column">
+              <div class="oj-flex-item">
+                  <div class="oj-label-nocomp" style="font-weight: normal; margin: .5rem 0" id="settings_basethemelabel">
+                    <a on-click="[[function(){$('#platformPop').ojPopup('open', '#platformPicker'); }]]">
+                      <span role="img" title="click for theme target platform info" class="oj-clickable-icon oj-fwk-icon oj-fwk-icon-help"></span>
+                    </a> Target Platform: <span><oj-bind-text value="[[themeTargetPlatform]]"></oj-bind-text></span>
+                  </div>
+
+                  <oj-popup id="platformPop"
+                            title="Theme Target Platform"
+                            style="width: 400px; max-width: 95%;"
+                            tail="simple"
+                            position.my.horizontal="left"
+                            position.my.vertical="center"
+                            position.at.horizontal="right"
+                            position.at.vertical="center"
+                            position.collision="flipfit">
+                      <oj-module config="[[platformthemeConfig()]]"></oj-module>
+                  </oj-popup>
+                  <oj-buttonset-one id="platformPicker" class="oj-buttonset-width-equal demo-buttonset-tall"
+                                    labelled-by="settings_basethemelabel"
+                                    chroming="outlined"
+                                    value="{{theme.baseTheme}}">
+                    <oj-option value="alta" id="platform_web" title="alta (web)">
+                      <span slot="startIcon" class="demo-icon-font demo-platform-icon-web"></span>
+                    </oj-option>
+                    <oj-option value="alta-ios" id="platform_ios" title="alta-ios">
+                      <span slot="startIcon" class="demo-platform-icon-ios"></span>
+                    </oj-option>
+                    <oj-option value="alta-android" id="platform_android" title="alta-android">
+                      <span slot="startIcon" class="demo-platform-icon-android"></span>
+                    </oj-option>
+                    <oj-option value="alta-windows" id="platform_windows" title="alta-windows">
+                      <span slot="startIcon" class="demo-platform-icon-windows"></span>
+                    </oj-option>
+                  </oj-buttonset-one>
+                  <div class="oj-md-only-hide" style="margin-bottom:20px"></div>
+              </div>
+              <div class="oj-flex-item oj-lg-hide oj-sm-only-hide" style="width:20px;min-width:20px;flex-grow:0"></div>
+              <div class="oj-flex-item">
+                <div class="oj-label-nocomp" style="font-weight: normal; margin: .5rem 0" id="settings_demothemelabel">
+                  <a on-click="[[function(){$('#customPop').ojPopup('open', '#customPicker');}]]">
+                    <span role="img" title="click for demo theme info" class="oj-clickable-icon oj-fwk-icon oj-fwk-icon-help"></span>
+                  </a> Custom Theme:
+                  <span><oj-bind-text value="[[theme.demoTheme]]"></oj-bind-text></span>
+                </div>
+                <oj-popup id="customPop" title="Custom Themes" style=" width: 400px;  max-width: 95%;"
+                          tail="simple" position.my.horizontal="left" position.my.vertical="center"
+                          position.at.horizontal="right" position.at.vertical="center"
+                          position.collision="flipfit">
+                      <oj-module config="[[customthemeConfig()]]"></oj-module>
+                </oj-popup>
+                <oj-buttonset-one  id="customPicker"
+                                   class="oj-buttonset-width-equal demo-buttonset-tall"
+                                   labelled-by="settings_demothemelabel"
+                                   chroming="outlined"
+                                   value="{{theme.demoTheme}}">
+                  <oj-option value="none" id="theme_none" title="none">
+                    <span slot="startIcon" class="demo-icon-font demo-platform-icon-blocked"></span>
+                  </oj-option>
+                  <oj-option value="mytheme" id="theme_mytheme" title="my custom theme">
+                    <span slot="startIcon" class="demo-icon-font demo-platform-icon-wrench"></span>
+                  </oj-option>
+                  <oj-option value="green" id="theme_green" title="green">
+                    <span slot="startIcon" class="demo-icon-font demo-platform-icon-leaf"></span>
+                  </oj-option>
+                  <!-- ko if: theme.baseTheme() == 'alta' -->
+                  <oj-option value="stealth" id="theme_stealth" title="stealth">
+                    <span slot="startIcon" class="oj-fwk-icon oj-fwk-icon-minimize"></span>
+                  </oj-option>
+                  <!-- /ko -->
+                  <!-- ko if: theme.baseTheme() == 'redwood' -->
+                  <oj-option value="compact" id="theme_compact" title="compact">
+                    <span slot="startIcon" class="demo-icon-font demo-platform-icon-cloud"></span>
+                  </oj-option>
+                  <!-- /ko -->
+                  <oj-option value="sanfrancisco" id="theme_sanfran" title="san francisco">
+                    <span slot="startIcon" class="demo-icon-font demo-platform-icon-sf"></span>
+                  </oj-option>
+                </oj-buttonset-one>
+              </div>
+            </div>

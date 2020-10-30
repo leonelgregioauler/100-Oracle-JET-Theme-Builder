@@ -1,0 +1,11 @@
+// creates color classes for use in the left column of the Theme Builder page
+
+// import functions used in this file
+@import "../../../scss/oj/utilities/oj.utilities.json";
+@import "../../../scss/oj/utilities/oj.utilities.theming.vars";
+@import "contrast";
+@import "alta.common.jsonmapping";
+
+.demo-var-map {
+  font-family: oj-json(oj-theming-colors-map());
+}

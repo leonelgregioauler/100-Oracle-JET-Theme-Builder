@@ -1,0 +1,107 @@
+<!--
+ Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<h3>Branding Palette</h3>
+<table id="pl" class="paletteTable" summary="Brand Palette List" aria-label="Brand Color Palette Table"
+       data-bind="ojComponent: {component: 'ojTable',
+                                data: colordatasource,
+                                display: 'grid',
+                                _RemoveHoverable: this,
+                                columnsDefault: {sortable: 'none', headerStyle: 'text-align: center; white-space:nowrap;'},
+                                columns: [{headerText: 'Color',
+                                            template: 'color_name'},
+                                          {headerText: 'Variable Name',
+                                           field: 'name'},
+                                          {headerText: 'Hex Value',
+                                           field: 'value'},
+                                          {headerText: 'HSL Value',
+                                           field: 'hslvalue'}],
+                                rootAttributes: {'style':'width: 100%;text-align: center;'}}">
+</table>
+<script type="text/html" id="color_name">
+    <td style="width:200px;">
+      <div style="width:100%;height:40px;" :style.background-color="[[value]]"></div>
+    </td>
+</script>
+
+<h3>Neutral Palette</h3>
+<table id="pt" class="paletteTable" summary="Neutral Palette List" aria-label="Neutral Color Palette Table"
+       data-bind="ojComponent: {component: 'ojTable',
+                                data: neutralBaseColorDatasource,
+                                display: 'grid',
+                                columnsDefault: {sortable: 'none', headerStyle: 'text-align: center; white-space:nowrap;'},
+                                columns: [{headerText: '$neutralHue',
+                                           field: 'hue'},
+                                          {headerText: '$neutralSaturation',
+                                           field: 'saturation'}],
+                                rootAttributes: {'style':'width: 100%;'}}">
+</table>
+<table id="pt2" class="paletteTable" summary="Neutral Palette List" aria-label="Neutral Color Palette Table"
+       data-bind="ojComponent: {component: 'ojTable',
+                                data: colordatasourceNeutral,
+                                display: 'grid',
+                                columnsDefault: {sortable: 'none', headerStyle: 'text-align: center; white-space:nowrap;'},
+                                columns: [{headerText: 'Color',
+                                            template: 'color_name_neutral'},
+                                          {headerText: 'Variable Name',
+                                           field: 'name'},
+                                          {headerText: 'Hex Value',
+                                           field: 'value'},
+                                          {headerText: 'HSL Value',
+                                           field: 'hslvalue'}],
+                                rootAttributes: {'style':'width: 100%;'}}">
+</table>
+<script type="text/html" id="color_name_neutral">
+     <td style="width:200px;">
+       <div style="width:100%;height:40px;" :style.background-color="[[value]]"></div>
+     </td>
+</script>
+
+<h3>Text Color Palette</h3>
+<oj-table id="textColorBaseTable" class="paletteTable" aria-label="text color base table"
+  data='[[textColorBaseDataSource]]' display="grid" columns-default.sortable='disabled'
+  columns='[{"headerText": "$textColorBase", "field": "value", "style": "text-align:center", "headerStyle": "text-align:center"}]'
+  style="width: 100%;">
+</oj-table>
+<table id="pt3" class="paletteTable" summary="Text Palette List" aria-label="Text Color Palette Table"
+       data-bind="ojComponent: {component: 'ojTable',
+                                data: textdatasource,
+                                display: 'grid',
+                                columnsDefault: {sortable: 'none', headerStyle: 'text-align: center; white-space:nowrap;'},
+                                columns: [{headerText: 'Color',
+                                            template: 'color_name_text'},
+                                          {headerText: 'Variable Name',
+                                           field: 'name'},
+                                          {headerText: 'RGBA Value',
+                                           field: 'value'}],
+                                rootAttributes: {'style':'width: 100%;'}}">
+</table>
+<script type="text/html" id="color_name_text">
+     <td style="width:200px;">
+       <div style="width:100%;height:40px;" :style.background-color="[[value]]"></div>
+     </td>
+</script>
+
+<h3>Accent Palette</h3>
+<table id="pt4" class="paletteTable" summary="Accent Palette List" aria-label="Accent Color Palette Table"
+       data-bind="ojComponent: {component: 'ojTable',
+                                data: accentcolordatasource,
+                                display: 'grid',
+                                columnsDefault: {sortable: 'none', headerStyle: 'text-align: center; white-space:nowrap;'},
+                                columns: [{headerText: 'Color',
+                                            template: 'color_name_accent'},
+                                          {headerText: 'Variable Name',
+                                           field: 'name'},
+                                          {headerText: 'Hex Value',
+                                           field: 'value'},
+                                          {headerText: 'HSL Value',
+                                           field: 'hslvalue'}],
+                                rootAttributes: {'style':'width: 100%;'}}">
+</table>
+<script type="text/html" id="color_name_accent">
+     <td style="width:200px;">
+       <div style="width:100%;height:40px;" :style.background-color="[[value]]"></div>
+     </td>
+</script>

@@ -1,0 +1,9 @@
+/* NOTE: The demo themes have not been designed to meet
+ * contrast ratio requirements and therefore may not be accessible.
+ */
+
+//import custom variable overrides
+@import "green.windows.settings";
+
+// import alta aggregating file
+@import "../../../scss/oj/alta-windows/oj-alta";

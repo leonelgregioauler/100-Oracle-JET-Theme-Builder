@@ -1,0 +1,25 @@
+/* NOTE: The demo themes have not been designed to meet
+ * contrast ratio requirements and therefore may not be accessible.
+ */
+
+
+// NOTE:
+// In general the background colors in a theme are either light or dark,
+// but not both. This allows components to be freely mixed together.
+// The class oj-contrast-marker is a marker class for an area with a
+// contrasting background color. Using compound selectors some
+// components know how to render themselves on a contrasting background.
+// For example the navigationList will render itself differently
+// when an ancestor has oj-contrast-marker on it.
+//
+// In the san francisco theme we are using a light background for most
+// of the page but a dark background for the header/footer,
+// therefore in addition to the sass we are using javascript to add
+// the class oj-contrast-marker to the header/footer when
+// the san francisco theme is enabled.
+
+//import custom variable overrides
+@import "sanfrancisco.windows.settings";
+
+// import alta aggregating file
+@import "../../../scss/oj/alta-windows/oj-alta";

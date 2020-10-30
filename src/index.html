@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+ Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+
+
+<html lang="en-us">
+  <head>
+    <title>Oracle JET Theme Builder</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1">
+    <link rel="icon" href="css/images/favicon.ico" type="image/x-icon" />
+
+    <!-- This is the main css file for the default Alta theme -->
+    <!--link rel="stylesheet" href="css/libs/oj/v9.1.0/alta/oj-alta.css" type="text/css" id="css"/-->
+    <!--link rel="stylesheet" href="css/altacolors/web/alta-colors-min.css" id="themecolorscss" -->
+
+    <script src="js/loadStyleSheets.js"></script>
+    <link rel="stylesheet" href="css/themebuilder.css"  >
+    <!-- RequireJS configuration file -->
+    <script data-main="js/main" src="js/libs/require/require.js"></script>
+  </head>
+  <body>
+    <!-- Template for rendering nav bar-->
+    <script type="text/html" id="navBarTemplate">
+      <li :id="[[$data['id']]]"><a href="#">
+        <span :class="[[$data['iconClass']]]"></span>
+        <oj-bind-text value="[[$data['name']]]"></oj-bind-text>
+      </a></li>
+    </script>
+    <!-- Template for rendering nav list-->
+    <script type="text/html" id="navTemplate">
+      <li><a href="#">
+        <span :class="[[$data['iconClass']]]"></span>
+        <oj-bind-text value="[[$data['name']]]"></oj-bind-text>
+      </a></li>
+    </script>
+
+    <div id="globalBody" class="oj-offcanvas-outer-wrapper oj-offcanvas-page">
+      <!--
+      ** This off-canvas section is used when the browser is resized to a
+      ** medium or smaller media query size. It moves the App Navigation into a drawer
+      -->
+      <!-- off-canvas content -->
+      <div id="offcanvas" role="navigation" class="oj-contrast-marker oj-web-applayout-offcanvas oj-offcanvas-start">
+        <!-- This data is hidden in off-canvas content
+          until the user clicks on the hamburger icon.
+        -->
+        <oj-navigation-list
+            edge="start"
+            selection="{{topNavBarSelection}}"
+            item.renderer="[[oj.KnockoutTemplateUtils.getRenderer('navTemplate', true)]]"
+            data="[[navDataSource]]"
+            on-selection-changed="[[navChange]]"
+            >
+        </oj-navigation-list>
+      </div>
+      <div id="pageContent" class="oj-web-applayout-page">
+        <!--
+           ** The header pattern uses oj-flex-bar style classes to layout header content.
+           ** Contains three main areas: global branding, global navigation, and application navigation.
+           ** Please see the Oracle JET website under the Cookbook/Patterns section for details on how to use this pattern
+        -->
+        <header role="banner" class="oj-web-applayout-header" >
+          <div class="oj-flex-bar oj-sm-align-items-center">
+            <!-- Offcanvas toggle button -->
+            <div class="oj-flex-bar-start oj-md-hide">
+              <oj-button class="oj-button-lg" on-oj-action='[[toggleDrawer]]'
+                         chroming='borderless'>
+                <span slot='startIcon' class='oj-web-applayout-offcanvas-icon'></span>
+              </oj-button>
+            </div>
+            <div class="oj-flex-bar-middle oj-sm-align-items-baseline">
+              <span role="img" class="oj-icon demo-oracle-icon" title="Oracle Logo" alt="Oracle Logo"></span>
+              <h1 class="oj-sm-only-hide oj-web-applayout-header-title">Theme Builder</h1>
+            </div>
+
+          </div>
+          <div role="navigation" class="oj-web-applayout-navbar">
+            <oj-navigation-list id="navList" role="navigation"
+            edge="top"
+            item.renderer="[[oj.KnockoutTemplateUtils.getRenderer('navBarTemplate', true)]]"
+            data="[[navDataSource]]"
+            selection="{{topNavBarSelection}}"
+            on-selection-changed="[[topNavBarSelectionChanged]]"
+            class="oj-sm-only-hide oj-navigationlist-item-dividers oj-lg-condense oj-md-justify-content-flex-end">
+            </oj-navigation-list>
+          </div>
+        </header>
+        <!-- This is where your main page content will be loaded -->
+        <div role="main" class="oj-web-applayout-content">
+          <div class="oj-flex">
+            <div class="oj-flex-item">
+              <oj-module config="[[currentModuleConfig]]"></oj-module>
+            </div>
+          </div>
+        </div>
+
+        <footer class="oj-web-applayout-footer" role="contentinfo"  >
+          <div >
+            <ul>
+              <li><a href="http://www.oracle.com/us/corporate/index.html#menu-about">About Oracle</a></li>
+              <li><a href="http://www.oracle.com/us/corporate/contact/index.html">Contact Us</a></li>
+              <li><a href="http://www.oracle.com/us/legal/terms/index.html">Legal Notices</a></li>
+              <li><a href="http://www.oracle.com/us/legal/privacy/index.html">Your Privacy Rights</a></li>
+            </ul>
+          </div>
+          <div class="oj-text-secondary-color oj-text-sm oj-web-applayout-max-width">
+            Copyright © 2014, 2020 Oracle and/or its affiliates All rights reserved.
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

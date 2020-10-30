@@ -1,0 +1,263 @@
+// stealth web theme
+//
+// Stealth is an example of a theme with a dark background.
+//
+// NOTE: The demo themes have not been designed to meet contrast ratio requirements and therefore may not accessible.
+
+// VARIABLES
+//-----------------------------------------------------------------------------
+
+$themeName:  stealth;
+
+// Image and font directories 
+$imageDir:         "../../../css/alta/9.1.0/web/images/";
+$commonImageDir:   "../../../css/alta/9.1.0/common/images/";
+$fontDir:          "../../../css/alta/9.1.0/web/fonts/";
+$spriteImages:     "../../../themes/stealth/web/images/sprites/sprite.svg";
+
+// brand colors
+$brandColor:           #027bc7 !default;
+$neutralHue:           203 !default;
+$neutralSaturation:    2% !default;
+
+$brandColorLight5:     mix(white, $brandColor, 91) !default;
+$brandColorLight4:     mix(white, $brandColor, 88) !default;
+$brandColorLight3:     mix(white, $brandColor, 84) !default;
+$brandColorLight2:     mix(white, $brandColor, 70) !default;
+$brandColorLight1:     mix(white, $brandColor, 46) !default;
+$brandColorDark1:      mix(black, $brandColor, 20) !default;
+$brandColorDark2:      mix(black, $brandColor, 40) !default;
+
+$neutralColor1:   hsl($neutralHue, $neutralSaturation, 0%) !default;
+$neutralColor2:   hsl($neutralHue, $neutralSaturation, 5%) !default;
+$neutralColor3:   hsl($neutralHue, $neutralSaturation, 10%) !default;
+$neutralColor4:   hsl($neutralHue, $neutralSaturation, 13%) !default;
+$neutralColor5:   hsl($neutralHue, $neutralSaturation, 16%) !default;
+$neutralColor6:   hsl($neutralHue, $neutralSaturation, 19%) !default;
+$neutralColor7:   hsl($neutralHue, $neutralSaturation, 22%) !default;
+$neutralColor8:   hsl($neutralHue, $neutralSaturation, 25%) !default;
+$neutralColor9:   hsl($neutralHue, $neutralSaturation, 28%) !default;
+$neutralColor10:  hsl($neutralHue, $neutralSaturation, 31%) !default;
+$neutralColor11:  hsl($neutralHue, $neutralSaturation, 35%) !default;
+$neutralColor12:  hsl($neutralHue, $neutralSaturation, 45%) !default;
+$neutralColor13:  hsl($neutralHue, $neutralSaturation, 55%) !default;
+$neutralColor14:  hsl($neutralHue, $neutralSaturation, 70%) !default;
+$neutralColor15:  hsl($neutralHue, $neutralSaturation, 80%) !default;
+$neutralColor16:  hsl($neutralHue, $neutralSaturation, 85%) !default;
+$neutralColor17:  hsl($neutralHue, $neutralSaturation, 100%) !default;
+
+// text colors
+// -----------
+$textColorBase: #fff !default;
+$textColor1: hsla(hue($textColorBase), saturation($textColorBase), lightness($textColorBase), 1) !default;
+$textColor2: hsla(hue($textColorBase), saturation($textColorBase), lightness($textColorBase), .85) !default;
+$textColor3: hsla(hue($textColorBase), saturation($textColorBase), lightness($textColorBase), .8) !default;
+$textColor4: hsla(hue($textColorBase), saturation($textColorBase), lightness($textColorBase), .7) !default;
+$textColor5: hsla(hue($textColorBase), saturation($textColorBase), lightness($textColorBase), .6) !default;
+$textColor6: hsla(hue($textColorBase), saturation($textColorBase), lightness($textColorBase), .55) !default;
+$textColor7: hsla(hue($textColorBase), saturation($textColorBase), lightness($textColorBase), .25) !default;
+
+$contrastTextColor:                   $neutralColor1 !default;
+$iconColorDisabled:                   $neutralColor10 !default;
+
+$panelBgColor:                        $neutralColor3 !default;
+
+$bodyBgColor:                         $neutralColor5 !default;
+$navigationListItemBgColorSelected:   $neutralColor3 !default; // only applies to vertical navlis
+$navigationListItemBgColorHover:      $neutralColor4 !default;
+
+$buttonBgColor:                       $neutralColor7 !default;
+$progressBarBgColor:                  $neutralColor14 !default;
+
+$trainBgColor:                        $neutralColor5 !default;
+
+$boxShadowHsl:                        0, 100%, 100% !default;
+$dialogHeaderBgColor:                 $neutralColor3 !default;
+$dialogBgColor:                       $neutralColor4 !default;
+$popupBgColor:                        $neutralColor4 !default;
+
+$accentColorDanger3:                  #E65A66 !default;
+$accentColorAttention3:               #F8CA75 !default;
+$accentColorInfo3:                    #80BFD9 !default;
+$accentColorConfirmation3:            #B3D69F !default;
+$accentColorConfirmation4:            #81BA5F !default;
+
+$borderColorError:                         $accentColorDanger3 !default;
+$messageComponentInlineBorderColorError:   $borderColorError !default;
+$messageComponentInlineBgColorError:       $borderColorError !default;
+$borderColorWarning:                       $accentColorAttention3 !default;
+$messageComponentInlineBorderColorWarning: $borderColorWarning !default;
+$messageComponentInlineBgColorWarning:     $borderColorWarning !default;
+$messageComponentInlineBorderColorInfo:    $accentColorInfo3 !default;
+$messageComponentInlineBgColorInfo:        $accentColorInfo3 !default;
+$messageComponentInlineBorderColorConfirmation:$accentColorConfirmation3 !default;
+$messageComponentInlineBgColorConfirmation:$accentColorConfirmation3 !default;
+$messageSummaryTextColor:                  $neutralColor1 !default;
+$colorRequired:                            $brandColorLight1 !default;
+
+$sliderThumbBorderColor:                   $neutralColor17 !default;
+$headerBgColorDisabled:                    $neutralColor4 !default;
+$tabBarItemContrastLabelColorSelected:     $brandColor !default;
+
+
+$menuItemBgColorFocus:              $neutralColor8 !default;
+$iconCircleBorderOffsetBgColor:     $neutralColor5 !default; //the padding color between border and circle
+$trainButtonMessagingIconColor:     $neutralColor17 !default;
+
+$swipeActionsTextColor:             $textColor1 !default;
+
+$collectionBgColor:                 $neutralColor3 !default;
+$collectionCellBgColor:             $neutralColor6 !default;
+$collectionHeaderBgColor:           $neutralColor5 !default;
+$collectionHeaderBgColorHover:      $neutralColor7 !default;
+$collectionCellBgColorHover:        $neutralColor8 !default;
+$collectionCellBgColorSelected:     $neutralColor11 !default;
+$collectionHeaderBgColorSelected:   $neutralColor12 !default;
+$collectionCellBgColorSelectedInactive:$collectionCellBgColorSelected !default;
+
+$indexerTextColor:                  $brandColorLight2 !default;
+$linkTextColor:                     $brandColorLight2 !default;
+
+$tabBarItemContrastLabelColorSelected:$brandColorDark2 !default;
+$tabBarHorizontalItemContrastLabelColorSelected:$brandColor !default;
+$tabBarItemBorderColorHover:        $brandColorLight1 !default;
+$tabBarItemContrastBgColorHover:    $neutralColor16 !default;
+$tabBarItemContrastLabelColorHover: $brandColorLight1 !default;
+$tabBarItemIconColorHover:          $brandColorLight1 !default;
+$tabBarItemLabelColorDefault:       $neutralColor13 !default;
+$tabBarItemIconColorDefault:        $neutralColor13 !default;
+
+$datepickerBorderColorToday:        $neutralColor10 !default;
+$formControlBgColor:                $neutralColor7 !default;
+$formControlBorderColor:            $neutralColor9 !default;
+$formControlBgColorDisabled:        $neutralColor6 !default;
+
+$iconColorHover:                    $brandColorLight2 !default;
+$iconColorDefault:                  $neutralColor13 !default;
+$buttonTextColorHover:              $iconColorHover !default;
+$buttonTextColor:                   $neutralColor15 !default;
+$buttonBgColorHover:                $neutralColor8 !default;
+$buttonBgColorDisabled:             $neutralColor6 !default;
+$buttonBorderColorDisabled:         $neutralColor10 !default;
+
+$sliderThumbBgColor:                $bodyBgColor !default;
+$filePickerBorderColor:             $neutralColor8 !default;
+$filePickerTextColor:               $iconColorHover !default;
+
+$navigationListItemLabelColorDefault:           $neutralColor13 !default;
+$navigationListItemIconColorDefault:            $neutralColor13 !default;
+$navigationListHorizontalItemLabelColorDefault: $neutralColor13 !default;
+$navigationListHorizontalItemIconColorDefault:  $neutralColor13 !default;
+$navigationListItemIconColorHover:              $brandColorLight1 !default;
+$navigationListItemBorderColorHover:            $brandColorLight1 !default;
+$navigationListItemContrastBgColorSelected:     $neutralColor17 !default;
+
+$switchTrackBgColor:                $neutralColor5 !default;
+$switchTrackBorderColor:            $neutralColor13 !default;
+$switchThumbBgColor:                $neutralColor16 !default;
+$switchThumbBorderColor:            $neutralColor5 !default;
+$switchTrackBgColorSelected:        $accentColorConfirmation4 !default;
+$switchTrackBorderColorSelected:    $accentColorConfirmation4 !default;
+$switchThumbBgColorSelected:        $neutralColor17 !default;
+$switchThumbBorderColorSelected:    $accentColorConfirmation4 !default;
+$switchTrackBgColorHover:           $neutralColor5 !default;
+$switchTrackBorderColorHover:       $neutralColor15 !default;
+$switchThumbBgColorHover:           $neutralColor17 !default;
+$switchThumbBorderColorHover:       $neutralColor1 !default;
+$switchTrackBgColorSelectedHover:   $accentColorConfirmation3 !default;
+$switchTrackBorderColorSelectedHover:$accentColorConfirmation3 !default;
+$switchThumbBgColorSelectedHover:   $neutralColor17 !default;
+$switchThumbBorderColorSelectedHover:$accentColorConfirmation3 !default;
+$switchTrackBgColorActive:          $neutralColor5 !default;
+$switchTrackBorderColorActive:      $neutralColor16 !default;
+$switchThumbBgColorActive:          $neutralColor17 !default;
+$switchThumbBorderColorActive:      $neutralColor1 !default;
+$switchTrackBgColorSelectedActive:  $accentColorConfirmation4 !default;
+$switchTrackBorderColorSelectedActive:$accentColorConfirmation4 !default;
+$switchThumbBgColorSelectedActive:  $neutralColor17 !default;
+$switchThumbBorderColorSelectedActive:$accentColorConfirmation4 !default;
+$switchTrackBgColorDisabled:        $neutralColor5 !default;
+$switchTrackBorderColorDisabled:    $neutralColor7 !default;
+$switchThumbBgColorDisabled:        $neutralColor8 !default;
+$switchThumbBorderColorDisabled:    $neutralColor5 !default;
+$switchTrackBgColorSelectedDisabled:$neutralColor8 !default;
+$switchTrackBorderColorSelectedDisabled:$neutralColor8 !default;
+$switchThumbBgColorSelectedDisabled:$neutralColor6 !default;
+$switchThumbBorderColorSelectedDisabled:$neutralColor8 !default;
+
+// COMPONENT VARIABLES
+// -------------------
+
+// progress
+// --------
+$progressCircleIndeterminateOverlayImage:             "../../common/web/images/spinner_full.gif";
+
+// IMPORTS
+//-----------------------------------------------------------------------------
+
+// Import alta web aggregating file
+@import "../../../scss/oj/alta/oj-alta";
+
+// Import theme sprite style selectors.
+@import "../../scss/stealth-web/widgets/oj.stealth.web.sprite";
+
+// STYLE SELECTORS - Override background images using sprites.
+//-----------------------------------------------------------------------------
+
+// radioset and checkboxset
+// ------------------------
+// The default radio and checkbox images are blue, replace them with images that are green.
+
+.oj-fwk-icon-checkbox-dis-selected, .oj-menucheckbox-icon.oj-selected.oj-disabled::after, .oj-checkboxset .oj-disabled.oj-selected .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-dis-selected-scale;
+}
+
+.oj-fwk-icon-checkbox-dis-unselected, .oj-menucheckbox-icon.oj-disabled::after, .oj-checkboxset .oj-disabled .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-dis-unselected-scale;
+}
+
+.oj-fwk-icon-checkbox-ena-selected, .oj-menucheckbox-icon.oj-selected::after, .oj-checkboxset .oj-selected .oj-radiocheckbox-icon {
+  // background-image: oj-image-url('sprites/sprite.svg');
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-ena-selected-scale;
+}
+
+.oj-fwk-icon-checkbox-ena-unselected, .oj-menucheckbox-icon::after, .oj-checkboxset .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-ena-unselected-scale;
+}
+
+.oj-fwk-icon-checkbox-pressed-selected, .oj-checkboxset-wrapper > .oj-active.oj-selected .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-pressed-selected-scale;
+}
+
+.oj-fwk-icon-checkbox-pressed-unselected, .oj-checkboxset-wrapper > .oj-active .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-pressed-unselected-scale;
+}
+
+.oj-fwk-icon-radio-ena-selected, .oj-radioset .oj-selected .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-radio-ena-selected-scale;
+}
+
+.oj-fwk-icon-radio-ena-unselected, .oj-radioset .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-radio-ena-unselected-scale;
+} 
+
+.oj-fwk-icon-radio-pressed-selected, .oj-radioset-wrapper > .oj-selected.oj-active .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-radio-pressed-selected-scale;
+} 
+
+.oj-fwk-icon-radio-pressed-unselected, .oj-radioset-wrapper > .oj-active .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-radio-pressed-unselected-scale;
+}
+
+
+

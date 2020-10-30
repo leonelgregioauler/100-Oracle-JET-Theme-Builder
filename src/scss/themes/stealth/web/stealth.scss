@@ -1,0 +1,16 @@
+/* NOTE: The demo themes have not been designed to meet
+ * contrast ratio requirements and therefore may not be accessible.
+ */
+
+//import custom variable overrides
+@import "stealth.web.settings";
+
+// import alta aggregating file
+@import "../../../scss/oj/alta/oj-alta";
+
+
+// due to the way the files are loaded, add the html tag selector to
+// bump up the specificity
+html .demo-oracle-icon {
+  @include oj-icon-content($icon: url("../../images/oracle_logo_white.svg"));
+}

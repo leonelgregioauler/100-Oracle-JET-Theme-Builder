@@ -1,0 +1,42 @@
+<!--
+ Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+                <h3 id="varHeader">
+                  <a on-click="[[function(){$('#variablesPop').ojPopup('open', '#varHeader');}]]">
+                    <span role="img" title="click for variable info" class="oj-clickable-icon oj-fwk-icon oj-fwk-icon-help"></span>
+                  </a>
+                  <span>Color Variables</span>
+                </h3>
+                <oj-popup id="variablesPop" title="Variables"
+                          style="width: 400px; max-width: 95%;"
+                          tail="simple" position.my.horizontal="left"  position.my.vertical="center"
+                          position.at.horizontal="right"  position.at.vertical="center"
+                          position.collision="flipfit">
+                        <oj-module config="[[variablesConfig()]]"></oj-module>
+                </oj-popup>
+                <div style="font-size:10px">
+                    <div>
+                      <oj-bind-for-each data="[[variablesarray]]"><template><div>
+                        <div :style.display="[[$current.data.id == 'palette' || labitem() == $current.data.id || labitem() == 'all' ? 'block' : 'none']]">
+                          <oj-collapsible expanded="[[labitem() == 'all' || $current.data.id != 'palette']]">
+                              <h4 slot="header"><oj-bind-text value="[[$current.data.title]]"></oj-bind-text></h4>
+                              <table style="width:100%">
+                                  <tbody>
+                                      <oj-bind-for-each data="[[$current.data.variables]]">
+                                        <template data-oj-as="variable">
+                                        <tr :title="[[variable.data.name]]">
+                                          <td class="demo-var-color" :class="[[{'site-color-null oj-text-tertiary-color': variable.data.value==''}]]" :style.background-color="[[variable.data.value]]"></td>
+                                          <td class="demo-var-hex" :class="[[{'site-hex-null': variable.data.value==''}]]"><oj-bind-text value="[[variable.data.value]]"></oj-bind-text></td>
+                                          <td><oj-bind-text value="[[variable.data.name]]"></oj-bind-text></td>
+                                        </tr>
+                                        </template>
+                                      </oj-bind-for-each>
+                                  </tbody>
+                              </table>
+                          </oj-collapsible>
+                        </div>
+                      </div></template></oj-bind-for-each>
+                    </div>
+                </div>

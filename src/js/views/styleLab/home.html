@@ -1,0 +1,183 @@
+<!--
+ Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-panel oj-panel-alt1 oj-sm-margin-2x-vertical oj-sm-padding-2x-vertical">
+  <h1>Welcome to Theme Builder
+    <oj-button class="oj-button-confirm oj-sm-margin-2x-start oj-button-lg oj-md-down-hide"
+             chroming="solid"
+             on-oj-action="[[startTour]]"
+             :class='[[{"demo-button-pulse": tourPulse}]]'>Tour</oj-button>
+  </h1>
+  <oj-module config="[[tourConfig()]]"></oj-module>
+  Theme Builder shows examples of custom themes and the files needed to create them.
+  On the <span><oj-bind-text value="[[mdDown() ? 'top': 'left']]"></oj-bind-text></span>, you can select platform and custom themes.  <span><oj-bind-text value="[[mdDown() ? 'Below that': 'On the right']]"></oj-bind-text></span>, you can see at least one example of each component that shows the effect of the selected theme.
+  Theme Builder is also set up with a custom theme for you to edit. Click the 'Instructions' tab for documentation that walks you through how to edit the custom theme files.
+</div>
+
+<div class="oj-offcanvas-outer-wrapper">
+  <div class="oj-offcanvas-inner-wrapper oj-flex oj-lg-flex-wrap-nowrap">
+    <div id="startDrawer" class="demo-themeroller oj-sm-padding-4x-end oj-md-down-hide oj-flex-item">
+      <div class="oj-panel">
+        <oj-bind-if test="[[mdDown() == false]]">
+          <h3>Theme Selection</h3>
+          <oj-module style="margin-bottom:20px" config="[[changethemeConfig()]]"></oj-module>
+        </oj-bind-if>
+        <oj-module config="[[variablesConfig()]]"></oj-module>
+      </div>
+    </div>
+
+    <oj-bind-if test="[[mdDown() == true]]">
+      <div class="demo-components-wrap oj-flex-item">
+        <div class="oj-panel">
+          <h3>Theme Selection</h3>
+          <oj-module style="margin-bottom:20px" config="[[changethemeConfig()]]"></oj-module>
+          <div class="oj-flex-bar">
+            <div class="oj-flex-bar-start oj-lg-hide">
+              <div class="oj-sm-padding-4x-end">
+                <h3>Variables</h3>
+                <oj-button id="start" on-oj-action="[[toggleStart]]" class="oj-button-lg" chroming="outlined">Show Variables</oj-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </oj-bind-if>
+
+    <div id="mashup" class="oj-flex-item">
+      <div>
+        <h3>View Selection</h3>
+        <oj-buttonset-one
+            id="filesPicker"
+            class="oj-buttonset-width-equal demo-buttonset-tall"
+            value="{{viewRouterSelectionState}}"
+            chroming="outlined">
+            <oj-bind-for-each data="[[childRouter.states]]"><template>
+              <oj-option value="[[$current.data.id]]" :id="[[$current.data.id]]">
+                <span><oj-bind-text value="[[$current.data.label]]"></oj-bind-text></span>
+              </oj-option>
+            </template></oj-bind-for-each>
+        </oj-buttonset-one>
+      </div>
+      <oj-bind-if test="[[viewRouterSelectionState() == 'tutorial']]">
+          <oj-tab-bar edge="top" selection="{{varlabitem}}">
+            <ul>
+              <oj-bind-for-each data="[[variableType]]"><template>
+                <li :id="[[$current.data.id]]">
+                    <a href="#"><oj-bind-text value="[[$current.data.label]]"></oj-bind-text></a>
+                </li>
+              </template></oj-bind-for-each>
+            </ul>
+          </oj-tab-bar>
+
+          <div class="oj-panel oj-panel-alt1" style="margin-top:20px" :style.background-color="[[bgcolor().length > 0 ? 'transparent': '']]">
+            <oj-bind-if test="[[varlabitem() == 'contrast']]">
+              <div>
+                <oj-module config="[[contrastConfig()]]"></oj-module>
+              </div>
+            </oj-bind-if>
+
+            <oj-bind-if test="[[varlabitem() == 'createpalette']]">
+              <div>
+                <oj-module config="[[createpaletteConfig()]]"></oj-module>
+              </div>
+            </oj-bind-if>
+
+            <oj-bind-if test="[[varlabitem() == 'colormappings']]">
+              <div>
+                <div data-bind="ojModule: 'comps/colormappings'"></div>
+              </div>
+            </oj-bind-if>
+
+            <oj-bind-if test="[[varlabitem() == 'variablelist']]">
+              <div>
+                <h3 class="oj-lg-hide">Files</h3>
+                <oj-module config="[[tutorialConfig()]]"></oj-module>
+              </div>
+            </oj-bind-if>
+
+            <oj-bind-if test="[[varlabitem() == 'generalVars']]">
+              <div>
+                <oj-module config="[[generalVarsConfig()]]"></oj-module>
+              </div>
+            </oj-bind-if>
+          </div>
+      </oj-bind-if>
+
+      <oj-bind-if test="[[viewRouterSelectionState() == 'comps']]"><div>
+        <h3 class="oj-lg-hide">Components</h3>
+        <div class="oj-md-hide">
+          <oj-label for="categoryfilterselect">Component Category Filter</oj-label>
+          <oj-select-one id="categoryfilterselect" value="{{labitem}}"
+                     style="max-width: 100%">
+            <oj-bind-for-each data="[[componentTypes]]"><template>
+              <oj-option value="[[$current.data.id]]">
+                <span><oj-bind-text value="[[$current.data.label]]"></oj-bind-text></span>
+              </oj-option>
+            </template></oj-bind-for-each>
+          </oj-select-one>
+        </div>      
+
+        <div class="oj-sm-only-hide">
+          <oj-tab-bar edge="top" selection="{{labitem}}">
+            <ul>
+              <oj-bind-for-each data="[[componentTypes]]"><template>
+                <li :id="[[$current.data.id]]">
+                    <a href="#"><oj-bind-text value="[[$current.data.label]]"></oj-bind-text></a>
+                </li>
+              </template></oj-bind-for-each>
+            </ul>
+          </oj-tab-bar>
+        </div>
+
+        <div class="oj-panel oj-panel-alt1" style="margin-top:20px" :style.background-color="[[bgcolor().length > 0 ? 'transparent': '']]">
+            <span class="oj-choice-item" :style.display="[[labitem() != 'info' ? '' : 'none']]">
+              <oj-checkboxset id="bgcolor" value="{{bgcolor}}">
+                <oj-option id="transparent" value="transparent">transparent panel background</oj-option>
+              </oj-checkboxset>
+            </span>
+
+            <oj-bind-if test="[[labitem() == 'controls']]"><div>
+              <oj-module config="[[controlsConfig()]]"></oj-module>
+            </div></oj-bind-if>
+
+            <oj-bind-if test="[[labitem() == 'layout']]"><div>
+              <oj-module config="[[layoutConfig()]]"></oj-module>
+            </div></oj-bind-if>
+
+            <oj-bind-if test="[[labitem() == 'forms']]"><div>
+              <oj-module config="[[formsConfig()]]"></oj-module>
+            </div></oj-bind-if>
+
+            <oj-bind-if test="[[labitem() == 'collections']]"><div>
+              <oj-module config="[[dataConfig()]]"></oj-module>
+            </div></oj-bind-if>
+
+            <oj-bind-if test="[[labitem() == 'dvt']]"><div>
+              <oj-module config="[[dvtConfig()]]"></oj-module>
+            </div></oj-bind-if>
+
+            <oj-bind-if test="[[labitem() == 'all']]"><div>
+              <h1 style="margin-top:20px" class="oj-header-border">Controls</h1>
+              <oj-module config="[[controlsConfig()]]"></oj-module>
+
+              <h1 style="margin-top:30px" class="oj-header-border">Layout & Nav</h1>
+              <oj-module config="[[layoutConfig()]]"></oj-module>
+
+              <h1 style="margin-top:30px" class="oj-header-border">Forms</h1>
+              <oj-module style="margin-left: 10px" config="[[formsConfig()]]"></oj-module>
+
+              <h1 style="margin-top:30px" class="oj-header-border">Collections</h1>
+              <oj-module config="[[dataConfig()]]"></oj-module>
+
+              <h1 style="margin-top:30px" class="oj-header-border">Visualizations</h1>
+              <oj-module config="[[dvtConfig()]]"></oj-module>
+            </div>
+          </oj-bind-if>
+        </div>
+      </div>
+      </oj-bind-if>
+    </div>
+  </div>
+</div>

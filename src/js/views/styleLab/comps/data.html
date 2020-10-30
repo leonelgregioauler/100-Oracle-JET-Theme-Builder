@@ -1,0 +1,106 @@
+<!--
+ Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+
+
+                    <div class="oj-flex">
+                        <div class="oj-flex-item oj-sm-12 oj-xl-6 oj-sm-padding-2x-horizontal">
+
+                            <!-- todo: not responsive, hide it on small screens -->
+                            <div class="oj-sm-only-hide">
+                                <h2>Table with PagingControl</h2>
+                                <div style="width: 500px; max-width: 100%;">
+                                    <oj-table id="table" summary="Department List"
+                                              aria-label="Departments Table"
+                                              data="[[datasource]]"
+                                              style='width: 100%;'
+                                              columns-default.sortable='disabled'
+                                              columns='[{"headerText": "Department Id", "field": "DepartmentId"},
+                                                        {"headerText": "Department Name", "field": "DepartmentName"},
+                                                        {"headerText": "Location Id", "field": "LocationId"}]'>
+                                    </oj-table>
+                                    <oj-paging-control id="paging" data='[[datasource]]' page-size='15' slot='bottom'>
+                                    </oj-paging-control>
+                                </div>
+                            </div>
+
+                            <h2>List View, Indexer, Pull to Refresh, Swipe to Reveal</h2>
+                            <div class="oj-flex oj-sm-flex-wrap-nowrap" id="listviewContainer">
+                                <oj-list-view id="listviewindexer"
+                                              drill-mode="none"
+                                              class="oj-flex-item"
+                                              selection-mode="multiple">
+                                    <ul>
+                                        <li><span>A</span>
+                                            <ul>
+                                                <li class="oj-swipeactions-container">
+                                                    <oj-swipe-actions>
+                                                        <div>swipe to reveal this row!</div>
+                                                        <template slot="start">
+                                                            <oj-option value="read">Read
+                                                            </oj-option>
+                                                        </template>
+                                                        <template slot="end">
+                                                            <oj-option class="oj-swipeactions-neutral" value="more">More
+                                                            </oj-option>
+                                                            <oj-option class="oj-swipeactions-attention" value="flag">Flag
+                                                            </oj-option>
+                                                            <oj-option class="oj-swipeactions-danger oj-swipeactions-default" value="trash">Trash
+                                                            </oj-option>
+                                                        </template>
+                                                    </oj-swipe-actions>
+                                                </li>
+                                                <li><span>Simon Austin</span></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>G</span>
+                                            <ul>
+                                                <li><span>Douglas Grant</span></li>
+                                                <li><span>Nancy Greenberg</span></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>P</span>
+                                            <ul>
+                                                <li><span>Luis Popp</span></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </oj-list-view>
+                                <oj-indexer id="indexer"
+                                            class="oj-sm-flex-initial oj-flex-item"
+                                            aria-controls="listviewindexer"
+                                            style="height:auto"
+                                            data="[[getIndexerModel()]]">
+                                </oj-indexer>
+                            </div>
+                        </div>
+                        <div class="oj-flex-item oj-sm-12 oj-xl-6 oj-sm-padding-2x-horizontal">
+                            <!-- todo: not responsive, hide it on small screens -->
+                            <div class="oj-sm-only-hide">
+                                <h2>Data Grid</h2>
+                                <div style="position: relative; display: inline-block;">
+                                    <oj-data-grid id="datagrid"
+                                                  selection-mode.cell="multiple"
+                                                  data="[[datagriddatasource]]"
+                                                  header.column.style="width:150px"
+                                                  style="width: 370px; height:355px;"></oj-data-grid>
+                                </div>
+                            </div>
+                            <h2>Tree View</h2>
+                            <div style="position: relative; display: inline-block;">
+                                <oj-tree-view id="treeview"
+                                              item.renderer="[[treeViewRenderer]]"
+                                              data="[[treeViewDataSource]]"
+                                              expanded="[[treeViewExpanded]]"
+                                              selection-mode="multiple"
+                                              style="width: 200px; height:340px;"></oj-tree-view>
+                                <script type="text/html" id="item_template">
+                                    <li>
+                                        <span class="oj-treeview-item-icon"></span><span class="oj-treeview-item-text"><oj-bind-text value="[[title]]"></oj-bind-text></span>
+                                    </li>
+                                </script>
+                            </div>
+                        </div>
+                    </div>

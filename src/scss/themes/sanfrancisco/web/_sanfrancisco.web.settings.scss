@@ -1,0 +1,261 @@
+// san francisco web theme
+//
+// The "san francisco" theme uses the colors of a certain san francisco based sports team.
+//
+// In addition to changing colors various non-color customizations are made. For example here are a few changes:
+//  - font - change the font family, reduce the root font size, and use px not rem for the font size variables
+//  - form controls - look more like the android theme
+//  - buttons - various customizations to size and shape
+//  - tabs - customize tabs to be rounded instead of square
+//  - train - individual rather than continuous connector
+//  - navlist - for vertical navlist make the bgcolor strong
+//  - avatar - add a ring to avatar and adjust size, font-size
+//
+// NOTE: The demo themes have not been designed to meet contrast ratio requirements and therefore may not accessible.
+
+// VARIABLES
+//-----------------------------------------------------------------------------
+$themeName:  sanfranciso;
+
+$brandColor:           #F2552C !default;
+$neutralHue:           33 !default;
+$neutralSaturation:    23% !default;
+
+// Image and font directories
+//----------------------------------------------------------------
+$imageDir:         "../../../css/alta/9.1.0/web/images/";
+$commonImageDir:   "../../../css/alta/9.1.0/common/images/";
+$fontDir:          "../../../css/alta/9.1.0/web/fonts/";
+$spriteImages:     "../../../themes/sanfrancisco/web/images/sprites/sprite.svg";
+
+// UNIVERSAL VARIABLES
+// ----------------------------------
+
+// Universal Font & Text Styling
+// -----------------------------
+
+// font size - shows using px instead of em/rem works
+$rootFontSize:    13px;
+$fontSize:        $rootFontSize;
+$smallFontSize:   $rootFontSize - 1px;
+$mediumFontSize:  $rootFontSize + 2px;
+$largeFontSize:   $rootFontSize + 4px;
+$largestFontSize: $rootFontSize + 6px;
+
+$fontFamily:  Helvetica, Arial, sans-serif;
+
+// radius
+// show a more rounded look and up the border radius variables
+$largeBorderRadius:  9px;
+$mediumBorderRadius: 7px;
+$smallBorderRadius:  4px;
+
+// COMPONENT VARIABLES
+// -------------------
+
+// body
+// ----
+$bodyBgImage: none;
+
+// button
+// ------
+$buttonBorderRadius: 1px;
+
+// make the button bigger and a flat color
+$buttonHeight:       2.5rem;
+$buttonBgImage:      none;
+
+// chroming option defaulting
+$buttonChromingOptionDefault: outlined;
+$buttonsetChromingOptionDefault: outlined;
+
+// Horiz space between text and edge of button when no intervening icon.
+$buttonTextToEdgePadding:       1rem;
+$buttonLargeTextToEdgePadding:  1.75rem;
+
+// Horiz space between text and icon.
+$buttonIconToTextPadding:       .65rem;
+
+// Horiz space between icon and edge of button when text also showing.
+$buttonIconToEdgePadding:       1rem;
+$buttonLargeIconToEdgePadding:  1.3rem;
+
+// Horiz space between icon and edge of button when icon only.
+$buttonIconOnlyPadding:       0.7rem;
+$buttonSmallIconOnlyPadding:  0.5rem;
+$buttonLargeIconOnlyPadding:  1rem;
+$buttonXlargeIconOnlyPadding: 1.3rem;
+
+// form
+//-----
+
+// Make form controls look more like they do on android.
+$formLayoutLabelInlineAlign: start;
+
+// Controls the horizontal padding inside an input.
+$formControlPaddingHorizontal: 10px;
+
+$formControlLargeMaxWidth:  100%;
+$formControlMediumMaxWidth: 100%;
+
+// These variables are used to set the column-width/column-gap properties in .oj-form-cols and 
+// .oj-form-cols-labels-inline.
+//
+// These classes use css multi column layout, see: http://dev.w3.org/csswg/css-multicol/
+$formLayoutColumnGap:               30px;
+$formLayoutLabelsInlineColumnGap:   40px;
+
+// make the form controls transparent and only have bottom border
+$formControlBorderRadius:    0;
+$formControlBorderWidth:     0 0 1px;
+$formControlBgColor:         transparent;
+
+// disabled
+$formControlBgColorDisabled: transparent;
+
+$formControlOpacityDisabled: .7;
+
+// inputNumber
+// -----------
+// the spacing between the input and the buttonset
+$inputNumberInputToButtonMargin: 16px;
+
+// progress
+// --------
+$progressCircleIndeterminateOverlayImage:  "../../common/web/images/spinner_full.gif";
+
+// radioset and checkboxset
+// ------------------------
+// The default radio and checkbox are native browser inputs.
+
+// We need one test of the html input and the sf theme is good for this.
+$radioCheckboxRenderInputAs: 'html' !default;
+
+$radioCheckboxRowHeight:     2.9rem !default;
+
+// Don't put any space between the edge and the input and label since we don't have borders.
+$radioCheckboxInputToEdgePadding:  0 !default;
+$radioCheckboxInputToLabelPadding: .74rem !default;
+$radioCheckboxLabelToEdgePadding:  0 !default;
+
+// train
+// -----
+
+// Let the labels wrap.
+$trainLabelTextWrap:          normal;
+$trainStepWidth:              98px !default;
+$trainLabelPaddingTop:        14px !default;
+$trainButtonFontSize:         13px !default;
+$trainButtonTextDisplay:      none !default;
+$trainConnectorHasFill:       1 !default;
+
+// The diameter of the "button" representing a stop.
+$trainButtonDiameter:         14px !default;
+
+$trainConnectorHeight:        8px !default;
+
+// The diameter of the connector circle around the button in the continuous connector design.
+$trainButtonContinuousConnectorDiameter:  $trainButtonDiameter + 8px !default;
+$trainIndividualConnectorPaddingSelected: 0px !default;
+
+$trainContinuousConnectorBgColorSelected: #d6d7d8;
+$trainVisitedIconDisplay:                 none !default;
+
+// navigationList
+// --------------
+// For vertical navlist make the bgcolor strong
+
+$navigationListItemBorderWidth:            0;
+$navigationListIconOnlyItemBorderWidth:    0;
+
+$navigationListHorizontalItemBorderWidth:  0 0 3px 0;
+
+// navigationTab
+// -------------
+$tabBarHorizontalItemBorderColor:          transparent transparent  #d6dfe6 transparent !default;
+$tabBarHorizontalItemBorderWidth:          3px 1px 1px 1px !default;//horizontal
+
+$tabBarVerticalItemBorderWidth:            0;
+$tabBarVerticalIconOnlyItemBorderWidth:    0;
+
+// avatar
+// ------
+
+$avatarXxsInitialsFontSize:    16px !default;
+$avatarXsInitialsFontSize:     18px !default;
+$avatarSmInitialsFontSize:     24px !default;
+$avatarMdInitialsFontSize:     36px !default;
+$avatarLgInitialsFontSize:     54px !default;
+
+$avatarXxsInnerSize:           32px !default;
+$avatarXsInnerSize:            48px !default;
+$avatarSmInnerSize:            64px !default;
+$avatarMdInnerSize:            96px !default;
+$avatarLgInnerSize:            144px !default;
+
+// IMPORTS
+//-----------------------------------------------------------------------------
+
+// Import alta web aggregating file
+@import "../../../scss/oj/alta/oj-alta";
+
+// Import theme sprite style selectors.
+@import "../../scss/sanfrancisco-web/widgets/oj.sanfrancisco.web.sprite";
+
+// STYLE SELECTORS - Override background images using sprites.
+//-----------------------------------------------------------------------------
+
+// radioset and checkboxset
+// ------------------------
+
+/*
+.oj-fwk-icon-checkbox-dis-selected, .oj-menucheckbox-icon.oj-selected.oj-disabled::after, .oj-checkboxset .oj-disabled.oj-selected .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-dis-selected-scale;
+}
+
+.oj-fwk-icon-checkbox-dis-unselected, .oj-menucheckbox-icon.oj-disabled::after, .oj-checkboxset .oj-disabled .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-dis-unselected-scale;
+}
+
+.oj-fwk-icon-checkbox-ena-selected, .oj-menucheckbox-icon.oj-selected::after, .oj-checkboxset .oj-selected .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-ena-selected-scale;
+}
+
+.oj-fwk-icon-checkbox-ena-unselected, .oj-menucheckbox-icon::after, .oj-checkboxset .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-ena-unselected-scale;
+}
+
+.oj-fwk-icon-checkbox-pressed-selected, .oj-checkboxset-wrapper > .oj-active.oj-selected .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-pressed-selected-scale;
+}
+
+.oj-fwk-icon-checkbox-pressed-unselected, .oj-checkboxset-wrapper > .oj-active .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-pressed-unselected-scale;
+}
+
+.oj-fwk-icon-radio-ena-selected, .oj-radioset .oj-selected .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-radio-ena-selected-scale;
+}
+
+.oj-fwk-icon-radio-ena-unselected, .oj-radioset .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-radio-ena-unselected-scale;
+} 
+
+.oj-fwk-icon-radio-pressed-selected, .oj-radioset-wrapper > .oj-selected.oj-active .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-radio-pressed-selected-scale;
+} 
+
+.oj-fwk-icon-radio-pressed-unselected, .oj-radioset-wrapper > .oj-active .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-radio-pressed-unselected-scale;
+}
+*/

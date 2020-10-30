@@ -1,0 +1,247 @@
+<!--
+ Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+
+
+                    <div class="oj-flex">
+
+                        <div class="oj-flex-item oj-sm-12 oj-xl-6 oj-sm-padding-2x-horizontal">
+                            <h2>Pie/Donut</h2>
+                            <oj-chart type="pie"
+                                      series="[[chartModel.pieSeriesValue]]"
+                                      groups="[[chartModel.pieGroupsValue]]"
+                                      animation-on-data-change="auto"
+                                      pie-center.label="Center Label"
+                                      style-defaults.pie-inner-radius="0.7"
+                                      selection-mode="multiple"
+                                      style="width:100%;max-width:400px;height:300px;float:left;">
+                            </oj-chart>
+                        </div>
+                         <div class="oj-flex-item oj-sm-12 oj-xl-6 oj-sm-padding-2x-horizontal">
+                            <h2>Chart</h2>
+                            <oj-chart type="bar"
+                                      selection-mode="multiple"
+                                      series="[[chartModel.barSeriesValue]]"
+                                      groups="[[chartModel.barGroupsValue]]"
+                                      animation-on-display="auto"
+                                      x-axis.title="x Axis Title"
+                                      y-axis.title="y Axis Title"
+                                      legend.rendered="off"
+                                      style="width:100%;max-width:400px;height:300px;float:left;">
+                            </oj-chart>
+                         </div>
+                        <div class="oj-flex-item oj-sm-12 oj-xl-6 oj-sm-padding-2x-horizontal">
+                            <h2>Treemap</h2>
+                            <oj-treemap animation-on-display="auto" animation-on-data-change="auto"
+                                        nodes="[[treeModel.nodeValues]]" style="width:100%;max-width:400px;height:298px;">
+                            </oj-treemap>
+                        </div>
+                        <div class="oj-flex-item oj-sm-12 oj-xl-6 oj-sm-padding-2x-horizontal">
+                            <h2>Sunburst</h2>
+                            <oj-sunburst animation-on-display="auto" animation-on-data-change="auto"
+                                         nodes="[[treeModel.nodeValues]]" style="width:100%;max-width:400px;height:300px;">
+                            </oj-sunburst>
+                        </div>
+                        <div class="oj-flex-item oj-sm-12 oj-xl-6 oj-sm-padding-2x-horizontal">
+                            <h2>Legend</h2>
+                            <oj-legend orientation='vertical'
+                                       sections="[[legendModel.sections]]"
+                                       style="width:100%;max-width:400px;height:300px;">
+                            </oj-legend>
+                        </div>
+                        <div class="oj-flex-item oj-sm-12 oj-xl-6 oj-sm-padding-2x-horizontal">
+                            <h2>Thematic Map</h2>
+                            <oj-thematic-map id='thematicMap1'
+                                             animation-on-display="auto"
+                                             map-provider="[[mapProvider]]"
+                                             label-display="off"
+                                             areas="[[areaData]]"
+                                             style="width:100%;max-width:400px;height:300px;">
+                            </oj-thematic-map>
+                        </div>
+                        <div class="oj-flex-item oj-sm-12 oj-xl-6 oj-sm-padding-2x-horizontal">
+                            <h2>Gauge</h2>
+                            <oj-status-meter-gauge id="gauge"
+                                                   orientation="circular"
+                                                   thresholds="[[gaugeModel.thresholdValues]]"
+                                                   min="0"
+                                                   max="100"
+                                                   value="30"
+                                                   animation-on-display="auto"
+                                                   indicator-size=".5"
+                                                   threshold-display="all"
+                                                   metric-label.rendered="on"
+                                                   readonly
+                                                   style="width:100%;max-width:50px;height:50px;">
+                            </oj-status-meter-gauge>
+                            <oj-rating-gauge id="gauge1"
+                                             thresholds="[[gaugeModel.thresholdValues1]]"
+                                             read-only="false"
+                                             value="5"
+                                             animation-on-display="auto"
+                                             readonly
+                                             style="width:100%;max-width:150px;height:50px;">
+                            </oj-rating-gauge>
+                            <oj-led-gauge id="gauge2"
+                                          metric-label.rendered="on"
+                                          thresholds="[[gaugeModel.thresholdValues]]"
+                                          min="0"
+                                          max="100"
+                                          value="30"
+                                          style="width:50px;height:50px;display:inline-block">
+                            </oj-led-gauge>
+                            <oj-led-gauge id="gauge3"
+                                          metric-label.rendered="on"
+                                          thresholds="[[gaugeModel.thresholdValues]]"
+                                          min="0"
+                                          max="100"
+                                          value="60"
+                                          style="width:50px;height:50px;display:inline-block">
+                            </oj-led-gauge>
+                            <oj-led-gauge id="gauge4"
+                                          metric-label.rendered="on"
+                                          thresholds="[[gaugeModel.thresholdValues]]"
+                                          min="0"
+                                          max="100"
+                                          value="90"
+                                          style="width:50px;height:50px;display:inline-block">
+                            </oj-led-gauge>
+                        </div>
+                        <div class="oj-flex-item oj-sm-12 oj-xl-6 oj-sm-padding-2x-horizontal">
+                            <h2>Diagram</h2>
+                            <oj-diagram id='diagram1'
+                                        animation-on-data-change='auto'
+                                        animation-on-display='auto'
+                                        data='[[diagramModel.data]]'
+                                        layout='[[diagramModel.simpleLayout]]'
+                                        style-defaults='[[diagramModel.styleDefaults]]'
+                                        node-properties='[[function(data){return {icon:{color:data.color}}}]]'
+                                        link-properties='[[function(data){return data}]]'
+                                        style="width:100%;max-width:400px;height:300px;">
+                            </oj-diagram>
+                        </div>
+                        <!-- todo: not responsive, hide it except on xl screens -->
+                        <div class="oj-flex-item oj-sm-12 oj-xl-6 oj-lg-down-hide oj-sm-padding-2x-horizontal">
+                            <h2>Timeline</h2>
+                                <oj-timeline id="timeline"
+                                             minor-axis='{"scale": "months"}'
+                                             major-axis.scale='quarters'
+                                             start='[[new Date("Jan 1, 2014").toISOString()]]'
+                                             end='[[new Date("Dec 31, 2014").toISOString()]]'
+                                             selection-mode='none'
+                                             style="width:100%;max-width:650px;height:300px;"
+                                             series='[{
+                                                        "id":"s1",
+                                                        "emptyText":"No Data.",
+                                                        "label": "Series Label Text",
+                                                        "items":[
+                                                          {
+                                                            "id":"e1",
+                                                            "title":"Title Text",
+                                                            "start":"Jan 3, 2014",
+                                                            "end":"Jan 25, 2014",
+                                                            "description":"Description Text"
+                                                          },
+                                                          {
+                                                            "id":"e2",
+                                                            "title":"Title Text",
+                                                            "start":"Feb 3, 2014",
+                                                            "end":"Feb 25, 2014",
+                                                            "description":"Description Text"
+                                                          },
+                                                          {
+                                                            "id":"e3",
+                                                            "title":"Title Text",
+                                                            "start":"Mar 3, 2014",
+                                                            "end":"Mar 25, 2014",
+                                                            "description":"Description Text"
+                                                          },
+                                                          {
+                                                            "id":"e4",
+                                                            "title":"Title Text",
+                                                            "start":"Apr 3, 2014",
+                                                            "end":"Apr 25, 2014",
+                                                            "description":"Description Text"
+                                                          },
+                                                          {
+                                                            "id":"e5",
+                                                            "title":"Title Text",
+                                                            "start":"May 3, 2014",
+                                                            "end":"May 25, 2014",
+                                                            "description":"Description Text"
+                                                          },
+                                                          {
+                                                            "id":"e6",
+                                                            "title":"Title Text",
+                                                            "start":"Jun 3, 2014",
+                                                            "end":"Jun 25, 2014",
+                                                            "description":"Description Text"
+                                                          },
+                                                          {
+                                                            "id":"e7",
+                                                            "title":"Title Text",
+                                                            "start":"Jul 3, 2014",
+                                                            "end":"Jul 25, 2014",
+                                                            "description":"Description Text"
+                                                          },
+                                                          {
+                                                            "id":"e8",
+                                                            "title":"Title Text",
+                                                            "start":"Aug 3, 2014",
+                                                            "end":"Aug 25, 2014",
+                                                            "description":"Description Text"
+                                                          },
+                                                          {
+                                                            "id":"e9",
+                                                            "title":"Title Text",
+                                                            "start":"Sep 3, 2014",
+                                                            "end":"Sep 25, 2014",
+                                                            "description":"Description Text"
+                                                          },
+                                                          {
+                                                            "id":"e10",
+                                                            "title":"Title Text",
+                                                            "start":"Oct 3, 2014",
+                                                            "end":"Oct 25, 2014",
+                                                            "description":"Description Text"
+                                                          },
+                                                          {
+                                                            "id":"e11",
+                                                            "title":"Title Text",
+                                                            "start":"Nov 3, 2014",
+                                                            "end":"Nov 25, 2014",
+                                                            "description":"Description Text"
+                                                          },
+                                                          {
+                                                            "id":"e12",
+                                                            "title":"Title Text",
+                                                            "start":"Dec 3, 2014",
+                                                            "end":"Dec 25, 2014",
+                                                            "description":"Description Text"
+                                                          }]}]'></oj-timeline>
+                            </div>
+                            <div class="oj-flex-item oj-sm-12 oj-xl-6 oj-sm-padding-2x-horizontal">
+                              <h2>Gantt</h2>
+                              <oj-gantt id="gantt"
+                                        start="[[ganttModel.projectStartDate]]"
+                                        end="[[ganttModel.projectEndDate]]"
+                                        gridlines='{
+                                          "horizontal": "visible",
+                                          "vertical": "visible"
+                                        }'
+                                        major-axis='{
+                                          "scale": "months",
+                                          "zoomOrder": ["quarters", "months", "weeks", "days"]
+                                        }'
+                                        minor-axis='{
+                                          "scale": "weeks",
+                                          "zoomOrder": ["quarters", "months", "weeks", "days"]
+                                        }'
+                                        rows="[[ganttModel.rowsData]]"
+                                        row-axis.rendered="on"
+                                        style="width:100%;max-width:650px;height:300px;">
+                              </oj-gantt>
+                            </div>
+                    </div>

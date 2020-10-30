@@ -1,0 +1,199 @@
+$collectBrandColors: ();
+$collectBrandColors: oj-theming-palette-colors();
+@function _passingBrandColors() {
+  $paletteBrandColors: ();
+  $reverse: 5;
+  $straight: 1;
+  @for $i from 1 through 5 {
+    $dynamichsl:  "("+round(hue(map-get(nth($collectBrandColors, $i), value)))+" , "+ round(saturation(map-get(nth($collectBrandColors, $i), value))) +" , "+
+    round(lightness(map-get(nth($collectBrandColors, $i), value))) +")";
+    $paletteBrandColors: append($paletteBrandColors, (name: '$brandColorLight#{$reverse}', value: map-get(nth($collectBrandColors, $i), value),
+    ColorId: 'brandvalue#{$i}', brandclass: 'monobrand-#{$i}', hslvalue: $dynamichsl));
+    $reverse: $reverse - 1;
+  }
+  @for $j from 6 through 8 {
+    $dynamichsl:  "("+round(hue(map-get(nth($collectBrandColors, $j), value)))+" , "+ round(saturation(map-get(nth($collectBrandColors, $j), value))) +" , "+
+    round(lightness(map-get(nth($collectBrandColors, $j), value))) +")";
+    @if $j == 6 {
+      $paletteBrandColors: append($paletteBrandColors, (name: '$brandColor', value: map-get(nth($collectBrandColors, $j), value),
+      ColorId: 'brandvalue#{$j}', brandclass: 'monobrand-#{$j}', hslvalue: $dynamichsl));
+    } @else {
+      $paletteBrandColors: append($paletteBrandColors, (name: '$brandColorDark#{$straight}', value: map-get(nth($collectBrandColors, $j), value),
+      ColorId: 'brandvalue#{$j}', brandclass: 'monobrand-#{$j}', hslvalue: $dynamichsl));
+      $straight: $straight + 1;
+    }
+  }
+  @return $paletteBrandColors;
+}
+
+@function _passingBrandNeutralColors() {
+  $paletteBrandNeutralColors: ();
+  $count: 1;
+  @for $k from 9 through 25 {
+    $dynamichslNeutral:  "("+round(hue(map-get(nth($collectBrandColors, $k), value)))+" , "+ round(saturation(map-get(nth($collectBrandColors, $k), value))) +" , "+
+    round(lightness(map-get(nth($collectBrandColors, $k), value))) +")";
+    $paletteBrandNeutralColors: append($paletteBrandNeutralColors, (name: '$neutralColor#{$count}', value: map-get(nth($collectBrandColors, $k), value),
+    NeutralColorId: 'brandNeutralvalue#{$count}', brandclass: 'monoaltaneutral-auto-#{$count}', hslvalue: $dynamichslNeutral));
+    $count: $count + 1;
+  }
+  @return $paletteBrandNeutralColors;
+}
+
+@function _passingTextColors() {
+  $paletteTextColors: ();
+  $count: 1;
+  @for $k from 26 through 32 {
+    $paletteTextColors: append($paletteTextColors, (name: '$textColor#{$count}', value: map-get(nth($collectBrandColors, $k), value), hslvalue: "("+round(hue(map-get(nth($collectBrandColors, $k), value)))+" , "+ round(saturation(map-get(nth($collectBrandColors, $k), value))) +" , "+round(lightness(map-get(nth($collectBrandColors, $k), value)))+")"));
+    $count: $count + 1;
+  }
+  @return $paletteTextColors;
+}
+
+@function _passingAccentColors() {
+  $paletteAccentColors: ();
+  $countk: 1;
+  @for $k from 33 through 34 {
+    $paletteAccentColors: append($paletteAccentColors, (name: '$accentColorHighlight#{$countk}', value: map-get(nth($collectBrandColors, $k), value), hslvalue: "("+round(hue(map-get(nth($collectBrandColors, $k), value)))+" , "+ round(saturation(map-get(nth($collectBrandColors, $k), value))) +" , "+round(lightness(map-get(nth($collectBrandColors, $k), value))) +")"));
+    $countk: $countk + 1;
+  }
+  $countl: 1;
+  @for $l from 35 through 39 {
+    $paletteAccentColors: append($paletteAccentColors, (name: '$accentColorDanger#{$countl}', value: map-get(nth($collectBrandColors, $l), value), hslvalue: "("+round(hue(map-get(nth($collectBrandColors, $l), value)))+" , "+ round(saturation(map-get(nth($collectBrandColors, $l), value))) +" , "+round(lightness(map-get(nth($collectBrandColors, $l), value))) +")"));
+    $countl: $countl + 1;
+  }
+  $countm: 1;
+  @for $m from 40 through 44 {
+    $paletteAccentColors: append($paletteAccentColors, (name: '$accentColorAttention#{$countm}', value: map-get(nth($collectBrandColors, $m), value), hslvalue: "("+round(hue(map-get(nth($collectBrandColors, $m), value)))+" , "+ round(saturation(map-get(nth($collectBrandColors, $m), value))) +" , "+round(lightness(map-get(nth($collectBrandColors, $m), value))) +")"));
+    $countm: $countm + 1;
+  }
+  $countn: 1;
+  @for $n from 45 through 49 {
+    $paletteAccentColors: append($paletteAccentColors, (name: '$accentColorInfo#{$countn}', value: map-get(nth($collectBrandColors, $n), value), hslvalue: "("+round(hue(map-get(nth($collectBrandColors, $n), value)))+" , "+ round(saturation(map-get(nth($collectBrandColors, $n), value))) +" , "+round(lightness(map-get(nth($collectBrandColors, $n), value))) +")"));
+    $countn: $countn + 1;
+  }
+  $counto: 1;
+  @for $o from 50 through 54 {
+    $paletteAccentColors: append($paletteAccentColors, (name: '$accentColorConfirmation#{$counto}', value: map-get(nth($collectBrandColors, $o), value), hslvalue: "("+round(hue(map-get(nth($collectBrandColors, $o), value)))+" , "+ round(saturation(map-get(nth($collectBrandColors, $o), value))) +" , "+round(lightness(map-get(nth($collectBrandColors, $o), value))) +")"));
+    $counto: $counto + 1;
+  }
+  $countp: 1;
+  @for $k from 55 through 66 {
+    $paletteAccentColors: append($paletteAccentColors, (name: '$accentColorDvt#{$countp}', value: map-get(nth($collectBrandColors, $k), value), hslvalue: "("+round(hue(map-get(nth($collectBrandColors, $k), value)))+" , "+ round(saturation(map-get(nth($collectBrandColors, $k), value))) +" , "+round(lightness(map-get(nth($collectBrandColors, $k), value))) +")"));
+    $countp: $countp + 1;
+  }
+  @return $paletteAccentColors;
+}
+
+.demo-brandramp-map {
+  font-family: oj-json(_passingBrandColors());
+}
+
+.demo-brandNeutralramp-map {
+  font-family: oj-json(_passingBrandNeutralColors());
+}
+
+.demo-Accentramp-map {
+  font-family: oj-json(_passingAccentColors());
+}
+
+.demo-textramp-map {
+  font-family: oj-json(_passingTextColors());
+}
+
+$varList: ();
+$varList: join($varList, oj-theming-controls-colors());
+$varList: join($varList, oj-theming-forms-colors());
+$varList: join($varList, oj-theming-layoutnav-colors());
+$varList: join($varList, oj-theming-collections-colors());
+$varList: join($varList, oj-theming-visualizations-colors());
+
+$assigningList: ();
+$assigningList: join($assigningList, _passingBrandColors());
+$assigningList: join($assigningList, _passingBrandNeutralColors());
+$assigningList: join($assigningList, _passingAccentColors());
+$assigningList: join($assigningList, _passingTextColors());
+$dipcollect: ();
+$new-list: ();
+
+@function remove-duplicates($list, $recursive: false) {
+  $result: ();
+  @each $item in $list {
+    @if not index($result, $item) {
+      @if length($item) > 1 and $recursive {
+        $result: append($result, remove-duplicates($item, $recursive));
+      }
+      @else {
+        $result: append($result, $item);
+      }
+    }
+  }
+  @return $result;
+}
+
+@function assignedBrandNeutralColors() {
+  $dipmatches: ();
+  $comparelist: ();
+  // Loop through all generated brand and neutral color variables
+  @for $a from 1 through length($assigningList) {
+    $newvarsvalue: map-get(nth($assigningList, $a), value);
+    $newvarsname: map-get(nth($assigningList, $a), name);
+    $addmatches: ();
+    // Loop through all color variables assigned in oj.utilities.theming.vars.scss
+    @for $b from 1 through length($varList) {
+      @if $newvarsvalue == map-get(nth($varList, $b), value) {
+        $addmatches: append($addmatches, '<br/>#{map-get(nth($varList, $b), name)}');
+        $dipmatches: append($dipmatches, map-get(nth($varList, $b), name));
+      }
+    }
+    $comparelist: append($comparelist, (name: $newvarsname, value: $newvarsvalue, matches: $addmatches));
+  }
+  $rgbalist: (); $rgbamaplist: ();
+  @for $c from 1 through length($varList) {
+    @if str-index('#{map-get(nth($varList, $c), value)}', 'transparent') != null {
+      $rgbalist: append($rgbalist, map-get(nth($varList, $c), value));
+      $rgbamaplist: append($rgbamaplist, nth($varList, $c));
+    }
+    @if map-get(nth($varList, $c), value) == null {
+      $rgbalist: append($rgbalist, map-get(nth($varList, $c), value));
+      $rgbamaplist: append($rgbamaplist, nth($varList, $c));
+    }
+  }
+  $duplicates_removed: remove-duplicates($rgbalist);
+  @for $l from 1 through length($duplicates_removed) {
+    $newvarsvalue_rgba: nth($duplicates_removed, $l);
+    $newvarsname_rgba: 'Derived Value';
+    $addmatches_rgba: ();
+    @for $m from 1 through length($rgbamaplist) {
+      @if $newvarsvalue_rgba == map-get(nth($rgbamaplist, $m), value) {
+        $addmatches_rgba: append($addmatches_rgba, '<br/>#{map-get(nth($rgbamaplist, $m), name)}');
+        $dipmatches: append($dipmatches, map-get(nth($rgbamaplist, $m), name));
+      }
+    }
+    @if $newvarsvalue_rgba == null {
+      $comparelist: append($comparelist, (name: 'Null', value: $newvarsvalue_rgba, matches: $addmatches_rgba));
+    } @else if $newvarsvalue_rgba == transparent {
+      $comparelist: append($comparelist, (name: 'Transparent', value: $newvarsvalue_rgba, matches: $addmatches_rgba));
+    } @else {
+      $comparelist: append($comparelist, (name: $newvarsname_rgba, value: $newvarsvalue_rgba, matches: $addmatches_rgba));
+    }
+  }
+  $dipcollect: $dipmatches !global;
+  @return $comparelist;
+}
+@function unassignedBrandNeutralColors() {
+  $listnotmatches: ();
+  @for $d from 1 through length($varList) {
+    @if not sl-contain($dipcollect, map-get(nth($varList, $d), name)) {
+      $listnotmatches: append($listnotmatches, nth($varList, $d));
+    }
+  }
+  @return $listnotmatches;
+}
+
+.demo-rampassignedvars-map {
+  font-family: oj-json(assignedBrandNeutralColors());
+}
+
+.demo-rampunassignedvars-map {
+  font-family: oj-json(unassignedBrandNeutralColors());
+}

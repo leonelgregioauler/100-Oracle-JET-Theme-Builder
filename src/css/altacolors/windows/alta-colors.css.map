@@ -1,0 +1,21 @@
+{
+	"version": 3,
+	"file": "alta-colors.css",
+	"sources": [
+		"../../../themes/altacolors/windows/alta-colors.scss",
+		"../../../scss/oj/alta-windows/_oj.alta.windows.variables.scss",
+		"../../../scss/oj/utilities/_oj.utilities.units.scss",
+		"../../../scss/oj/utilities/_oj.utilities.math.scss",
+		"../../../scss/oj/common/_oj.common.palette.scss",
+		"../../../scss/oj/common/_oj.common.variables.scss",
+		"../../../scss/oj/utilities/_oj.utilities.urls.scss",
+		"../../../scss/oj/utilities/_oj.utilities.modules.scss",
+		"../../../scss/oj/utilities/_oj.utilities.theming.vars.scss",
+		"../../../themes/altacolors/common/_vars.scss",
+		"../../../scss/oj/utilities/_oj.utilities.json.scss",
+		"../../../themes/altacolors/common/_contrast.scss",
+		"../../../themes/altacolors/common/_alta.common.jsonmapping.scss"
+	],
+	"names": [],
+	"mappings": "AK46GA,yIAAyI;AMxpGzI,AAAA,0BAA0B,CAAC;EACzB,WAAW,ED5JJ,4jSAAW,GCgKnB;;ACnMD,AAAA,mBAAmB,CAAC;EAClB,WAAW,EFnBJ,2hCAAW,GEoBnB;;AAED,AAAA,0BAA0B,CAAC;EACzB,WAAW,EFvBJ,4jFAAW,GEwBnB;;AAED,AAAA,oBAAoB,CAAC;EACnB,WAAW,EF3BJ,swFAAW,GE4BnB;;AAED,AAAA,kBAAkB,CAAC;EACjB,WAAW,EF/BJ,ujBAAW,GEgCnB;;AA4FD,AAAA,0BAA0B,CAAC;EACzB,WAAW,EF7HJ,01sBAAW,GE8HnB;;AAED,AAAA,4BAA4B,CAAC;EAC3B,WAAW,EFjIJ,IAAW,GEkInB;;AH9LD,AAAA,aAAa,CAAC;EACZ,WAAW,ECgHJ,8t/BAAW,GD/GnB"
+}

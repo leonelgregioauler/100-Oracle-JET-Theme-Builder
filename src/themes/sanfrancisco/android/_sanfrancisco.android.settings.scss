@@ -1,0 +1,109 @@
+// sanfrancisco android theme
+//
+// The "san francisco" theme uses the colors of a certain san francisco based sports team.
+//
+// In addition to changing colors various non-color customizations are made. For example here are a few changes:
+//  - font - reduce the root font size
+//  - increase the border radius variables
+//  - forms - use full borders
+//  - buttons - customize default chroming
+//  - tabs - customize tabs to be rounded instead of square
+//  - navlist - for vertical navlist make the bgcolor strong
+//
+// NOTE: The demo themes have not been designed to meet contrast ratio requirements and therefore may not accessible.
+
+// VARIABLES
+//-----------------------------------------------------------------------------
+$themeName:  sanfrancisco;
+
+$brandColor:           #F2552C !default;
+$neutralHue:           33 !default;
+$neutralSaturation:    23% !default;
+
+// Image and font directories
+$imageDir:               "../../../css/alta/9.1.0/android/images/";
+$commonImageDir:         "../../../css/alta/9.1.0/common/images/";
+$fontDir:                "../../../css/alta/9.1.0/android/fonts/";
+
+// UNIVERSAL VARIABLES
+//----------------------------------
+
+// Universal Font & Text Styling
+//------------------------------
+
+// font size
+$rootFontSize:    .875em;
+
+// Universal Background and Border Styling
+//----------------------------------------
+
+// radius
+// show a more rounded look and up the border radius variables
+$largeBorderRadius:  9px;
+$mediumBorderRadius: 7px;
+$smallBorderRadius:  4px;
+
+// COMPONENT VARIABLES
+// -------------------
+
+// button
+// ------
+
+// chroming option defaulting
+$buttonChromingOptionDefault:    outlined;
+$buttonsetChromingOptionDefault: outlined;
+
+// form
+// -----
+$formLayoutLabelInlineAlign: end;
+$formLayoutFieldInlineAlign: start;
+
+$formControlBorderWidth:            1px;
+$formControlInputBorderWidthFocus:  1px;
+$formControlBorderRadius:           5px;
+
+// controls the horizontal padding inside an input
+$formControlPaddingHorizontal:      10px;
+
+// train
+// -----
+$trainLabelTextWrap:                nowrap;
+
+// navigationList
+// --------------
+// For vertical navlist make the bgcolor strong
+$navigationListItemBorderWidth:            0;
+$navigationListIconOnlyItemBorderWidth:    0;
+$navigationListHorizontalItemBorderWidth:  0 0 3px 0;
+
+// navigationTab
+// -------------
+$tabBarVerticalItemBorderWidth:            0;
+$tabBarVerticalIconOnlyItemBorderWidth:    0;
+$tabBarHorizontalItemBgColorSelected:      transparent ;
+
+// progress
+// --------
+// The built in alta-ios overlay is blue, replace it with a black and white version, and use opacity so 
+// the background color shows through.
+$progressBarIndeterminateOverlayOpacity:  .2;
+$progressBarIndeterminateOverlayImage:    "../../common/android/images/animated-overlay.gif";
+
+$progressCircleIndeterminateOverlayImage: "../../common/web/images/spinner_full.gif";
+
+// IMPORTS
+//-----------------------------------------------------------------------------
+
+// Import alta-android aggregating file
+@import "../../../scss/oj/alta-android/oj-alta";
+
+// Import theme sprite style selectors.
+@import "../../scss/sanfrancisco-android/widgets/oj.sanfrancisco.android.sprite";
+
+// STYLE SELECTORS - Override background images using sprites.
+//-----------------------------------------------------------------------------
+
+// radioset and checkboxset
+// -------------------------
+// The default radio and checkbox images are blue, replace them with images that are orange
+

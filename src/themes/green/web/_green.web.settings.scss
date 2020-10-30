@@ -1,0 +1,100 @@
+// green web theme
+//
+// NOTE: The demo themes have not been designed to meet contrast ratio 
+//       requirements and therefore may not be accessible.
+
+// VARIABLES
+// -----------------------------------------------------------------------------
+$themeName:        green;
+
+$brandColor:       #07ac02 !default;
+
+// Image and font directories  
+$imageDir:         "../../../css/alta/9.1.0/web/images/";
+$commonImageDir:   "../../../css/alta/9.1.0/common/images/";
+$fontDir:          "../../../css/alta/9.1.0/web/fonts/";
+$spriteImages:     "../../../themes/green/web/images/sprites/sprite.svg";
+
+// COMPONENT VARIABLES
+// -------------------
+
+// progress
+// --------
+$progressCircleIndeterminateOverlayImage: "../../common/web/images/spinner_full.gif";
+
+// IMPORTS
+// -----------------------------------------------------------------------------
+
+// Import alta web aggregating file
+@import "../../../scss/oj/alta/oj-alta";
+
+// Import theme sprite style selectors.
+@import "../../scss/green-web/widgets/oj.green.web.sprite";
+
+// STYLE SELECTORS - Override background images using sprites.
+// -----------------------------------------------------------------------------
+
+// radioset and checkboxset
+// ------------------------
+// The default radio and checkbox images are blue, replace them with images that are green.
+
+.oj-fwk-icon-checkbox-dis-selected, .oj-menucheckbox-icon.oj-selected.oj-disabled::after, .oj-checkboxset .oj-disabled.oj-selected .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-dis-selected-scale;
+}
+
+.oj-fwk-icon-checkbox-dis-unselected, .oj-menucheckbox-icon.oj-disabled::after, .oj-checkboxset .oj-disabled .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-dis-unselected-scale;
+}
+
+.oj-fwk-icon-checkbox-ena-selected, .oj-menucheckbox-icon.oj-selected::after, .oj-checkboxset .oj-selected .oj-radiocheckbox-icon {
+  // background-image: oj-image-url('sprites/sprite.svg');
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-ena-selected-scale;
+}
+
+.oj-fwk-icon-checkbox-ena-unselected, .oj-menucheckbox-icon::after, .oj-checkboxset .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-ena-unselected-scale;
+}
+
+.oj-fwk-icon-checkbox-pressed-selected, .oj-checkboxset-wrapper > .oj-active.oj-selected .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-pressed-selected-scale;
+}
+
+.oj-fwk-icon-checkbox-pressed-selected, .oj-checkboxset-wrapper > .oj-active.oj-selected .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-pressed-selected-scale;
+}
+
+.oj-fwk-icon-checkbox-pressed-unselected, .oj-checkboxset-wrapper > .oj-active .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-checkbox-pressed-unselected-scale;
+}
+
+.oj-fwk-icon-radio-ena-selected, .oj-radioset .oj-selected .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-radio-ena-selected-scale;
+}
+
+.oj-fwk-icon-radio-ena-unselected, .oj-radioset .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-radio-ena-unselected-scale;
+} 
+
+.oj-fwk-icon-radio-pressed-selected, .oj-radioset-wrapper > .oj-selected.oj-active .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-radio-pressed-selected-scale;
+} 
+
+.oj-fwk-icon-radio-pressed-unselected, .oj-radioset-wrapper > .oj-active .oj-radiocheckbox-icon {
+  background-image: url($spriteImages);
+  @include oj-fwk-icon-radio-pressed-unselected-scale;
+}
+
+// Pull to refresh
+// The default pull to refresh images are blue, replace them with images that are a neutral color.
+//// $refresherImageDir: "../../common/ios/images/";
+

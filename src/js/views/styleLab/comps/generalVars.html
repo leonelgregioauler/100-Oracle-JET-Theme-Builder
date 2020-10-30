@@ -1,0 +1,26 @@
+<!--
+ Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<oj-bind-for-each data="[[generalVarsDataArray]]"><template>
+  <div style="padding-bottom: 20px;">
+    <h1><oj-bind-text value="[[$current.data.name]]"></oj-bind-text></h1>
+    <oj-table data='[[$current.data.map]]' columns-default.sortable='disabled' columns='{{columnArray}}'></oj-table>
+  </div>
+</template></oj-bind-for-each>
+
+<script type="text/html" id="mapped_vars">
+  <td>
+    <ul style="padding: 0;">
+      <oj-bind-for-each data="[[$context.row.vars]]"><template>
+        <li style="list-style: none;">
+          <span><oj-bind-text value="[[$current.data.name]]"></oj-bind-text></span>
+          <oj-bind-if test="[[$context.row.name === 'OtherValue']]">
+            <span><oj-bind-text value="[[': ' + $current.data.value]]"></oj-bind-text></span>
+          </oj-bind-if>
+        </li>
+      </template></oj-bind-for-each>
+    </ul>
+  </td>
+</script>
